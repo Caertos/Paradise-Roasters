@@ -21,9 +21,9 @@ body {
     #0d4d87 75%,
     #163a6b 100%
   ),
-  url("./assets/texturaparadise.svg");
+  url("./assets/texturaparadise.webp");
 
   background-blend-mode: multiply;
-  background-size: auto, 300px 300px;
+  background-size: auto;
   background-repeat: no-repeat, repeat;
 }
