@@ -1,0 +1,29 @@
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(9px, 2vw, 16px);
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  min-height: 300vh;
+  background: linear-gradient(
+    to bottom,
+    #488484 0%,
+    #0f7c7b 25%,
+    #145b8d 50%,
+    #0d4d87 75%,
+    #163a6b 100%
+  ),
+  url("./assets/texturaparadise.svg");
+
+  background-blend-mode: multiply;
+  background-size: auto, 300px 300px;
+  background-repeat: no-repeat, repeat;
+}
