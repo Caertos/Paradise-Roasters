@@ -13,12 +13,15 @@ const navItems: NavItem[] = [
   { label: "Products", href: "/products" },
   { label: "About us", href: "/about" },
   { label: "Blogs", href: "/blogs" },
-  { label: (<span className="cart-label">
-              <CartIcon />
-              <span>Cart</span>
-           </span>
-           ),
-           href: "/cart" },
+  {
+    label: (
+      <span className="cart-label">
+        <CartIcon />
+        <span>Cart</span>
+      </span>
+    ),
+    href: "/cart",
+  },
 ];
 
 const Navbar: React.FC = () => {

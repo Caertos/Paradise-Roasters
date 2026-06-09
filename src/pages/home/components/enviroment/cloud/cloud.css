@@ -1,0 +1,24 @@
+.nube {
+  position: absolute;
+  width: 50%;
+}
+
+.nube1 {
+  left: 0;
+  top: calc(1rem + 2vh);
+}
+
+.nube2 {
+  left: 0;
+  top: calc(5rem + 22vh);
+}
+
+.nube3 {
+  right: 0;
+  top: calc(1rem + 2vh);
+}
+
+.nube4 {
+  right: 0;
+  top: calc(5rem + 22vh);
+}

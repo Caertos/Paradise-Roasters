@@ -1,0 +1,22 @@
+.sun {
+  position: absolute;
+  z-index: -1;
+  top: -7vw;
+  left: 5vw;
+  width: 50vw;
+  height: 50vw;
+
+  background: radial-gradient(
+    49.78% 50.22% at 50% 50%,
+    #f15a24 0%,
+    #f3722a 12%,
+    #fbb03b 37%,
+    rgba(251, 176, 59, 0.79) 46%,
+    rgba(251, 176, 59, 0.55) 57%,
+    rgba(251, 176, 59, 0.36) 67%,
+    rgba(251, 176, 59, 0.2) 77%,
+    rgba(251, 176, 59, 0.09) 86%,
+    rgba(251, 176, 59, 0.02) 94%,
+    rgba(251, 176, 59, 0) 100%
+  );
+}

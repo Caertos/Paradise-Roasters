@@ -1,0 +1,63 @@
+.flamingos {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  bottom: 0;
+  --speed: 0.3;
+  --wrap: 1980px;
+  transform: translateX(
+    mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
+  );
+}
+
+.flamingos-silhouette {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  bottom: 25%;
+  left: 25%;
+  --speed: 0.25;
+  --wrap: 1980px;
+  transform: translateX(
+    mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
+  );
+}
+
+.flamingo:nth-child(2) {
+  left: 8%;
+  top: 0;
+}
+
+.flamingo:nth-child(3) {
+  left: 25%;
+  top: 10%;
+}
+
+.flamingo:nth-child(4) {
+  left: 5%;
+  top: 25%;
+}
+
+.flamingo:nth-child(5) {
+  left: 38%;
+  top: 18%;
+}
+
+.flamingo {
+  position: absolute;
+  z-index: 2;
+  bottom: 60%;
+  left: 15%;
+}
+
+.flamingo-big {
+  width: calc(1rem + 10vw);
+}
+
+.flamingo-medium {
+  width: calc(1rem + 7vw);
+}
+
+.flamingo-small {
+  width: calc(1rem + 4vw);
+}

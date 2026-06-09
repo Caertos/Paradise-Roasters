@@ -22,7 +22,7 @@
 .nav-link {
   position: relative;
   display: flex;
-  text-decoration: none;  
+  text-decoration: none;
   align-items: center;
   height: 100%;
   padding-right: 1.5rem;
@@ -51,26 +51,4 @@
 
 .cart-label svg {
   height: 2.5rem;
-}
-
-.sun {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  background: radial-gradient(
-    49.78% 50.22% at 50% 50%,
-    #f15a24 0%,
-    #f3722a 12%,
-    #fbb03b 37%,
-    rgba(251, 176, 59, 0.79) 46%,
-    rgba(251, 176, 59, 0.55) 57%,
-    rgba(251, 176, 59, 0.36) 67%,
-    rgba(251, 176, 59, 0.2) 77%,
-    rgba(251, 176, 59, 0.09) 86%,
-    rgba(251, 176, 59, 0.02) 94%,
-    rgba(251, 176, 59, 0) 100%
-  );
 }

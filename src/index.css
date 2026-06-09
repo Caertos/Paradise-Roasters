@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Montserrat", sans-serif;
   font-size: clamp(9px, 2vw, 16px);
@@ -13,17 +17,26 @@ body,
 
 body {
   min-height: 300vh;
-  background: linear-gradient(
-    to bottom,
-    #488484 0%,
-    #0f7c7b 25%,
-    #145b8d 50%,
-    #0d4d87 75%,
-    #163a6b 100%
-  ),
-  url("./assets/texturaparadise.webp");
+  background:
+    linear-gradient(
+      to bottom,
+      #488484 0%,
+      #0f7c7b 25%,
+      #145b8d 50%,
+      #0d4d87 75%,
+      #163a6b 100%
+    ),
+    url("./assets/texturaparadise.webp");
 
   background-blend-mode: multiply;
   background-size: auto;
   background-repeat: no-repeat, repeat;
+}
+
+.logo {
+  position: absolute;
+  width: clamp(15rem, 25rem, 20vw);
+  top: 2%;
+  left: 2%;
+  z-index: 10;
 }
