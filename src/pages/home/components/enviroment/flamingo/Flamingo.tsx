@@ -12,7 +12,7 @@ export default function Flamingo({ source, size, ext }: FlamingoProps) {
   return (
     <img
       src={`${URL_BASE}${source}${ext}`}
-      alt="Flamingo"
+      alt=""
       className={`flamingo flamingo-${size}`}
     />
   );

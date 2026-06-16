@@ -16,7 +16,7 @@ export default function Enviroment() {
         <Cloud source="nube2" />
         <Cloud source="nube3" />
         <Cloud source="nube4" />
-        <img src="/mountains.svg" alt="Mountains" className="mountains" />
+        <img src="/mountains.svg" alt="" className="mountains" />
         <div className="flamingos">
           <Flamingo source="flamingo" size="big" ext=".webp" />
           <Flamingo source="flamingo2" size="medium" ext=".webp" />
@@ -32,11 +32,11 @@ export default function Enviroment() {
         </div>
       </section>
       <section className="enviroment2">
-        <img src="/mountains.svg" alt="Mountains" className="mountains-reflected"/>
-        <img src="/luzagua.webp" className="waterReflection"/>
-        <img src="/palmeras.webp" className="palm-trees"/>
-        <img src="/isla.webp" className="island"/>
-        <img src="/sombrasmarinas.webp" className="marine-shadow"/>
+        <img src="/mountains.svg" alt="" className="mountains-reflected"/>
+        <img src="/luzagua.webp" alt="" className="waterReflection"/>
+        <img src="/palmeras.webp" alt="" className="palm-trees"/>
+        <img src="/isla.webp" alt="" className="island"/>
+        <img src="/sombrasmarinas.webp" alt="" className="marine-shadow"/>
       </section>
     <section className="enviroment3">
     </section>
