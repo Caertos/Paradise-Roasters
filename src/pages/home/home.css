@@ -9,7 +9,7 @@
       #0d4d87 75%,
       #163a6b 100%
     ),
-    url("./assets/texturaparadise.webp");
+    url("@/assets/texturaparadise.webp");
 
   background-blend-mode: multiply;
   background-size: auto;
