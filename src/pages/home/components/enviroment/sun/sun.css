@@ -1,10 +1,11 @@
 .sun {
   position: absolute;
-  z-index: -1;
-  top: -7vw;
-  left: 5vw;
+  z-index: 1;
+  top: 0;
+  left: 0;
   width: 50vw;
   height: 50vw;
+  transform: translateY(-15%);
 
   background: radial-gradient(
     49.78% 50.22% at 50% 50%,

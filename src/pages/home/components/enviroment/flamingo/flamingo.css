@@ -1,9 +1,10 @@
 .flamingos {
   position: absolute;
+  z-index: 2;
   width: 50%;
   height: 50%;
   bottom: 0;
-  --speed: 0.3;
+  --speed: 0.2;
   --wrap: 1980px;
   transform: translateX(
     mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
@@ -12,52 +13,65 @@
 
 .flamingos-silhouette {
   position: absolute;
-  width: 50%;
-  height: 50%;
+  z-index: 2;
+  width: 40%;
+  height: 40%;
   bottom: 25%;
-  left: 25%;
-  --speed: 0.25;
+  left: 0;
+  --speed: 0.08;
   --wrap: 1980px;
   transform: translateX(
     mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
   );
 }
 
+.flamingo:nth-child(first) {
+  
+}
+
 .flamingo:nth-child(2) {
-  left: 8%;
+  left: 5%;
   top: 0;
+  z-index: 2;
 }
 
 .flamingo:nth-child(3) {
   left: 25%;
   top: 10%;
+  z-index: 2;
 }
 
 .flamingo:nth-child(4) {
-  left: 5%;
+  left: 10%;
   top: 25%;
+  z-index: 2;
 }
 
 .flamingo:nth-child(5) {
   left: 38%;
-  top: 18%;
+  top: 15%;
+  z-index: 2;
 }
 
 .flamingo {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   bottom: 60%;
   left: 15%;
 }
 
 .flamingo-big {
-  width: calc(1rem + 10vw);
+  width: calc(25%);
 }
 
 .flamingo-medium {
-  width: calc(1rem + 7vw);
+  width: calc(20%);
 }
 
 .flamingo-small {
-  width: calc(1rem + 4vw);
+  width: calc(15%);
+}
+
+.flamingo-x-small {
+  width: calc(10%);
 }

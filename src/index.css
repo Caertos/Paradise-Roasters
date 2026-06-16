@@ -16,7 +16,6 @@ body,
 }
 
 body {
-  min-height: 300vh;
   background:
     linear-gradient(
       to bottom,
