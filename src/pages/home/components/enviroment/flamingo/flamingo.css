@@ -25,10 +25,6 @@
   );
 }
 
-.flamingo:nth-child(first) {
-  
-}
-
 .flamingo:nth-child(2) {
   left: 5%;
   top: 0;
