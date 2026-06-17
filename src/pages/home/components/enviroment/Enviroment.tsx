@@ -11,7 +11,7 @@ export default function Enviroment() {
   useScroll();
   return (
     <div className="enviroment">
-      <section className="enviroment1">
+      <section className="bioma1">
         <Sun />
         <Cloud source="nube1" />
         <Cloud source="nube2" />
@@ -86,19 +86,19 @@ export default function Enviroment() {
           />
         </div>
       </section>
-      <section className="enviroment2">
+      <section className="bioma2">
         <img src="/mountains.svg" alt="" className="mountains-reflected" />
         <img src="/luzagua.webp" alt="" className="waterReflection" />
         <img src="/palmeras.webp" alt="" className="palm-trees" />
         <img src="/isla.webp" alt="" className="island" />
         <img src="/sombrasmarinas.webp" alt="" className="marine-shadow" />
       </section>
-      <section className="enviroment3">
+      <section className="bioma3">
         <Animal type="pez" source="pez" size="big" ext=".webp" />
       </section>
-      <section className="enviroment4"></section>
-      <section className="enviroment4"></section>
-      <section className="enviroment4"></section>
+      <section className="bioma4"></section>
+      <section className="bioma4"></section>
+      <section className="bioma4"></section>
     </div>
   );
 }

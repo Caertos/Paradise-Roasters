@@ -6,7 +6,7 @@
   }
 }
 
-.enviroment1 {
+.bioma1 {
   position: relative;
   width: 100%;
   overflow-x: hidden;
@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-.enviroment2 {
+.bioma2 {
   position: relative;
 }
 
@@ -67,10 +67,10 @@
   transform: translateY(-70%);
 }
 
-.enviroment3 {
+.bioma3 {
   border: 2px solid orange;
 }
 
-.enviroment4 {
+.bioma4 {
   border: 2px solid red;
 }
