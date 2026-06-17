@@ -1,15 +1,20 @@
 .flamingos {
-  --speed: 0.2;
+  position: absolute;
+  z-index: 2;
+  width: 50%;
   height: 50%;
   bottom: 0;
+  --speed: 0.2;
 }
 
 .flamingos-silhouette {
-  --speed: 0.08;
+  position: absolute;
+  z-index: 2;
   width: 40%;
   height: 40%;
   bottom: 25%;
   left: 0;
+  --speed: 0.08;
 }
 
 .flamingo:nth-child(2) {
