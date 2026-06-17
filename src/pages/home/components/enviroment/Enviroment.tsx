@@ -5,6 +5,7 @@ import Cloud from "./cloud/Cloud";
 import Animal from "./animal/Animal";
 
 import "./enviroment.css";
+import "./animal/flamingos.css";
 
 export default function Enviroment() {
   useScroll();
@@ -17,42 +18,71 @@ export default function Enviroment() {
         <Cloud source="nube3" />
         <Cloud source="nube4" />
         <img src="/mountains.svg" alt="" className="mountains" />
-        <div className="animals">
-          <Animal type="flamingo" source="flamingo" size="big" ext=".webp" />
+        <div className="flamingos">
+          <Animal
+            type="flamingo"
+            source="flamingo"
+            size="big"
+            ext=".webp"
+            className="flamingo"
+          />
           <Animal
             type="flamingo"
             source="flamingo2"
             size="medium"
             ext=".webp"
+            className="flamingo"
           />
-          <Animal type="flamingo" source="flamingo" size="small" ext=".webp" />
-          <Animal type="flamingo" source="flamingo3" size="small" ext=".webp" />
-          <Animal type="flamingo" source="flamingo4" size="small" ext=".webp" />
+          <Animal
+            type="flamingo"
+            source="flamingo"
+            size="small"
+            ext=".webp"
+            className="flamingo"
+          />
+          <Animal
+            type="flamingo"
+            source="flamingo3"
+            size="small"
+            ext=".webp"
+            className="flamingo"
+          />
+          <Animal
+            type="flamingo"
+            source="flamingo4"
+            size="small"
+            ext=".webp"
+            className="flamingo"
+          />
         </div>
-        <div className="animals-silhouette">
+        <div className="flamingos-silhouette">
           <Animal
             type="flamingo"
             source="flamingo-silhouette"
             size="medium"
             ext=".svg"
+            className="flamingo"
           />
           <Animal
             type="flamingo"
             source="flamingo-silhouette"
             size="small"
             ext=".svg"
+            className="flamingo"
           />
           <Animal
             type="flamingo"
             source="flamingo-silhouette"
             size="x-small"
             ext=".svg"
+            className="flamingo"
           />
           <Animal
             type="flamingo"
             source="flamingo-silhouette"
             size="x-small"
             ext=".svg"
+            className="flamingo"
           />
         </div>
       </section>
@@ -63,9 +93,11 @@ export default function Enviroment() {
         <img src="/isla.webp" alt="" className="island" />
         <img src="/sombrasmarinas.webp" alt="" className="marine-shadow" />
       </section>
-      <section className="enviroment3"></section>
+      <section className="enviroment3">
+        <Animal type="pez" source="pez" size="big" ext=".webp" />
+      </section>
       <section className="enviroment4"></section>
-      <section className="enviroment4"></section>{" "}
+      <section className="enviroment4"></section>
       <section className="enviroment4"></section>
     </div>
   );

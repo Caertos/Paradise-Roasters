@@ -5,16 +5,23 @@ interface AnimalProps {
   source: string;
   size: string;
   ext: string;
+  className?: string;
 }
 
 const URL_BASE = "/";
 
-export default function Animal({ type, source, size, ext }: AnimalProps) {
+export default function Animal({
+  type,
+  source,
+  size,
+  ext,
+  className = "",
+}: AnimalProps) {
   return (
     <img
       src={`${URL_BASE}${source}${ext}`}
       alt=""
-      className={`animal animal-${type} animal-${size}`}
+      className={`animal animal-${type} animal-${size} ${className}`}
     />
   );
 }
