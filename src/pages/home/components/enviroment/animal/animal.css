@@ -1,4 +1,4 @@
-.flamingos {
+.animals {
   position: absolute;
   z-index: 2;
   width: 50%;
@@ -11,7 +11,7 @@
   );
 }
 
-.flamingos-silhouette {
+.animals-silhouette {
   position: absolute;
   z-index: 2;
   width: 40%;
@@ -25,49 +25,49 @@
   );
 }
 
-.flamingo:nth-child(2) {
+.animal:nth-child(2) {
   left: 5%;
   top: 0;
   z-index: 2;
 }
 
-.flamingo:nth-child(3) {
+.animal:nth-child(3) {
   left: 25%;
   top: 10%;
   z-index: 2;
 }
 
-.flamingo:nth-child(4) {
+.animal:nth-child(4) {
   left: 10%;
   top: 25%;
   z-index: 2;
 }
 
-.flamingo:nth-child(5) {
+.animal:nth-child(5) {
   left: 38%;
   top: 15%;
   z-index: 2;
 }
 
-.flamingo {
+.animal {
   position: absolute;
   z-index: 3;
   bottom: 60%;
   left: 15%;
 }
 
-.flamingo-big {
+.animal-big {
   width: calc(25%);
 }
 
-.flamingo-medium {
+.animal-medium {
   width: calc(20%);
 }
 
-.flamingo-small {
+.animal-small {
   width: calc(15%);
 }
 
-.flamingo-x-small {
+.animal-x-small {
   width: calc(10%);
 }
