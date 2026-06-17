@@ -4,19 +4,20 @@ import Sun from "./sun/Sun";
 import Cloud from "./cloud/Cloud";
 import Animal from "./animal/Animal";
 
-import "./enviroment.css";
+import "./environment.css";
 import "./animal/flamingos.css";
+import "./animal/fish.css";
 
-export default function Enviroment() {
+export default function Environment() {
   useScroll();
   return (
-    <div className="enviroment">
-      <section className="bioma1">
+    <div className="environment">
+      <section className="biome1">
         <Sun />
-        <Cloud source="nube1" />
-        <Cloud source="nube2" />
-        <Cloud source="nube3" />
-        <Cloud source="nube4" />
+        <Cloud source="cloud1" />
+        <Cloud source="cloud2" />
+        <Cloud source="cloud3" />
+        <Cloud source="cloud4" />
         <img src="/mountains.svg" alt="" className="mountains" />
         <div className="flamingos group">
           <Animal
@@ -86,23 +87,23 @@ export default function Enviroment() {
           />
         </div>
       </section>
-      <section className="bioma2">
+      <section className="biome2">
         <img src="/mountains.svg" alt="" className="mountains-reflected" />
-        <img src="/luzagua.webp" alt="" className="waterReflection" />
-        <img src="/palmeras.webp" alt="" className="palm-trees" />
-        <img src="/isla.webp" alt="" className="island" />
-        <img src="/sombrasmarinas.webp" alt="" className="marine-shadow" />
+        <img src="/water-light.webp" alt="" className="waterReflection" />
+        <img src="/palm-trees.webp" alt="" className="palm-trees" />
+        <img src="/island.webp" alt="" className="island" />
+        <img src="/marine-shadows.webp" alt="" className="marine-shadow" />
       </section>
-      <section className="bioma3">
-        <div className="butterflyfishes group">
-          <Animal type="pez" source="pez" size="big" ext=".webp" />
-          <Animal type="pez" source="pez" size="small" ext=".webp" />
-          <Animal type="pez" source="pez" size="x-small" ext=".webp" />
+      <section className="biome3">
+        <div className="butterflyfish group">
+          <Animal type="fish" source="fish" size="big" ext=".webp" />
+          <Animal type="fish" source="fish" size="small" ext=".webp" />
+          <Animal type="fish" source="fish" size="x-small" ext=".webp" />
         </div>
       </section>
-      <section className="bioma4"></section>
-      <section className="bioma4"></section>
-      <section className="bioma4"></section>
+      <section className="biome4"></section>
+      <section className="biome4"></section>
+      <section className="biome4"></section>
     </div>
   );
 }

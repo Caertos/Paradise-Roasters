@@ -1,4 +1,4 @@
-import Enviroment from "./components/enviroment/Enviroment";
+import Environment from "./components/environment/Environment";
 
 import "./home.css";
 
@@ -8,7 +8,7 @@ export default function Home() {
       <a className="home" href="/">
         <img src="/Logo.svg" alt="Logo" className="logo" />
       </a>
-      <Enviroment />
+      <Environment />
     </div>
   );
 }

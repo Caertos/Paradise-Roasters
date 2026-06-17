@@ -1,24 +1,24 @@
-.nube {
+.cloud {
   position: absolute;
   width: 50%;
 }
 
-.nube1 {
+.cloud1 {
   left: 0;
   transform: translateY(10%);
 }
 
-.nube2 {
+.cloud2 {
   left: 0;
   transform: translateY(200%);
 }
 
-.nube3 {
+.cloud3 {
   right: 0;
   transform: translateY(10%);
 }
 
-.nube4 {
+.cloud4 {
   right: 0;
   transform: translateY(100%);
 }

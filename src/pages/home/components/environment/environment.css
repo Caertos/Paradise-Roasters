@@ -1,4 +1,4 @@
-.enviroment section {
+.environment section {
   height: 100vh;
 
   @media (orientation: portrait) {
@@ -6,7 +6,7 @@
   }
 }
 
-.bioma1 {
+.biome1 {
   position: relative;
   width: 100%;
   overflow-x: hidden;
@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-.bioma2 {
+.biome2 {
   position: relative;
 }
 
@@ -67,10 +67,10 @@
   transform: translateY(-70%);
 }
 
-.bioma3 {
-  border: 2px solid orange;
+.biome3 {
+  overflow-x: hidden;
 }
 
-.bioma4 {
+.biome4 {
   border: 2px solid red;
 }
