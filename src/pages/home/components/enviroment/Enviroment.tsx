@@ -18,7 +18,7 @@ export default function Enviroment() {
         <Cloud source="nube3" />
         <Cloud source="nube4" />
         <img src="/mountains.svg" alt="" className="mountains" />
-        <div className="flamingos">
+        <div className="flamingos group">
           <Animal
             type="flamingo"
             source="flamingo"
@@ -55,7 +55,7 @@ export default function Enviroment() {
             className="flamingo"
           />
         </div>
-        <div className="flamingos-silhouette">
+        <div className="flamingos-silhouette group">
           <Animal
             type="flamingo"
             source="flamingo-silhouette"
@@ -94,7 +94,11 @@ export default function Enviroment() {
         <img src="/sombrasmarinas.webp" alt="" className="marine-shadow" />
       </section>
       <section className="bioma3">
-        <Animal type="pez" source="pez" size="big" ext=".webp" />
+        <div className="butterflyfishes group">
+          <Animal type="pez" source="pez" size="big" ext=".webp" />
+          <Animal type="pez" source="pez" size="small" ext=".webp" />
+          <Animal type="pez" source="pez" size="x-small" ext=".webp" />
+        </div>
       </section>
       <section className="bioma4"></section>
       <section className="bioma4"></section>

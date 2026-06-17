@@ -1,3 +1,7 @@
+.group {
+  width: 25%;
+}
+
 .animal-big {
   width: calc(25%);
 }
