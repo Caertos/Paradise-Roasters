@@ -1,3 +1,7 @@
+/*===============
+   GLOBAL
+===============*/
+
 .environment section {
   height: 100vh;
 
@@ -5,6 +9,10 @@
     height: 50vh;
   }
 }
+
+/*===============
+   BIOME 1
+===============*/
 
 .biome1 {
   position: relative;
@@ -17,6 +25,10 @@
   bottom: 0;
   width: 100%;
 }
+
+/*===============
+   BIOME 2
+===============*/
 
 .biome2 {
   position: relative;
@@ -67,9 +79,19 @@
   transform: translateY(-70%);
 }
 
+/*===============
+   BIOME 3
+===============*/
+
 .biome3 {
+  position: relative;
+  width: 100%;
   overflow-x: hidden;
 }
+
+/*===============
+   BIOME 4
+===============*/
 
 .biome4 {
   border: 2px solid red;
