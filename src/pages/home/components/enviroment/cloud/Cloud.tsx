@@ -8,10 +8,6 @@ const URL_BASE = "/clouds/";
 
 export default function Cloud({ source }: CloudProps) {
   return (
-    <img
-      src={`${URL_BASE}${source}.svg`}
-      alt=""
-      className={`nube ${source}`}
-    />
+    <img src={`${URL_BASE}${source}.svg`} alt="" className={`nube ${source}`} />
   );
 }
