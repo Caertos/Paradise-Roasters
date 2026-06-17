@@ -1,28 +1,15 @@
 .flamingos {
-  position: absolute;
-  z-index: 2;
-  width: 50%;
+  --speed: 0.2;
   height: 50%;
   bottom: 0;
-  --speed: 0.2;
-  --wrap: 1980px;
-  transform: translateX(
-    mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
-  );
 }
 
 .flamingos-silhouette {
-  position: absolute;
-  z-index: 2;
+  --speed: 0.08;
   width: 40%;
   height: 40%;
   bottom: 25%;
   left: 0;
-  --speed: 0.08;
-  --wrap: 1980px;
-  transform: translateX(
-    mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
-  );
 }
 
 .flamingo:nth-child(2) {

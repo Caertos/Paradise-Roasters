@@ -1,5 +1,10 @@
 .group {
   width: 25%;
+  --speed: 0.2;
+  --wrap: 1980px;
+  transform: translateX(
+    mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
+  );
 }
 
 .animal-big {
