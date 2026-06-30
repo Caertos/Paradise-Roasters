@@ -6,3 +6,29 @@
 .animal-fish:nth-child(2) {
   transform: translateY(150%);
 }
+
+.long-fish {
+  position: absolute;
+  bottom: 15%;
+  left: -25%;
+  --speed: 0.3;
+}
+
+.school-fish {
+  position: absolute;
+  top: 25%;
+  left: -30%;
+  z-index: 10;
+  width: 25%;
+}
+
+.lone-fish {
+  position: absolute;
+  top: 25%;
+  left: -25%;
+  --speed: 0.08;
+}
+
+.school-fish .animal {
+  width: 100%;
+}

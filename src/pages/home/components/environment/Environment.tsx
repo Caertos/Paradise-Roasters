@@ -96,14 +96,35 @@ export default function Environment() {
       </section>
       <section className="biome3">
         <div className="butterflyfish group">
-          <Animal type="fish" source="fish" size="big" ext=".webp" />
-          <Animal type="fish" source="fish" size="small" ext=".webp" />
-          <Animal type="fish" source="fish" size="x-small" ext=".webp" />
+          <Animal type="fish" source="butterflyfish" size="big" ext=".svg" />
+          <Animal type="fish" source="butterflyfish" size="small" ext=".svg" />
+          <Animal type="fish" source="butterflyfish" size="x-small" ext=".svg" />
+        </div>
+        <div className="long-fish group">
+          <Animal type="fish" source="longfish2" size="medium" ext=".svg" />
+          <Animal type="fish" source="longfish3" size="small" ext=".svg" />
+          <Animal type="fish" source="longfish1" size="big" ext=".svg" />
         </div>
       </section>
-      <section className="biome4"></section>
-      <section className="biome4"></section>
-      <section className="biome4"></section>
+      <section className="biome4">
+        <div className="lone-fish group">
+          <Animal type="fish" source="fish" size="xx-big" ext=".svg" />
+        </div>
+      </section>
+      <section className="biome5">
+        <div className="school-fish group">
+          <Animal type="fish" source="fish-school" size="big" ext=".svg" />
+        </div>
+        <img src="/jellyfish.svg" alt="" className="jellyfish" />
+        <img src="/fish-silhouette.svg" alt="" className="fish-silhouette" />
+      </section>
+      <section className="biome6">
+        <img src="/coral3.webp" alt="" className="coral3" />
+        <img src="/coral4.webp" alt="" className="coral4" />
+        <img src="/coral5.webp" alt="" className="coral5" />
+        <img src="/coral2.webp" alt="" className="coral2" />
+        <img src="/coral.webp" alt="" className="coral" />
+      </section>
     </div>
   );
 }

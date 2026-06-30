@@ -1,7 +1,7 @@
 .group {
   width: 25%;
   --speed: 0.2;
-  --wrap: 120vw;
+  --wrap: 130vw;
   transform: translateX(
     mod(calc(var(--scroll-distance, 0) * var(--speed) * 1px), var(--wrap))
   );
@@ -21,4 +21,8 @@
 
 .animal-x-small {
   width: calc(10%);
+}
+
+.animal-xx-big {
+  width: calc(50%);
 }

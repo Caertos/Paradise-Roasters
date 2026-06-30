@@ -63,6 +63,68 @@
   width: 100%;
 }
 
+.coral {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.coral2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.coral3 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateY(-100%);
+
+  @media (orientation: portrait) {
+    transform: translateY(0%);
+  }
+}
+
+.coral4 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateY(-100%);
+
+  @media (orientation: portrait) {
+    transform: translateY(0%);
+  }
+}
+
+.coral5 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateY(-100%);
+
+  @media (orientation: portrait) {
+    transform: translateY(0%);
+  }
+}
+
+.jellyfish {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15%;
+  z-index: 2;
+}
+
+.fish-silhouette {
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  width: 4%;
+  z-index: 2;
+}
+
 .island {
   position: absolute;
   right: 0;
@@ -86,7 +148,7 @@
 .biome3 {
   position: relative;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /*===============
@@ -94,5 +156,28 @@
 ===============*/
 
 .biome4 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid red;
+}
+
+/*===============
+   BIOME 5
+===============*/
+
+.biome5 {
+  position: relative;
+  width: 100%;
+  border: 2px solid red;
+}
+
+/*===============
+   BIOME 6
+===============*/
+
+.biome6 {
+  position: relative;
+  width: 100%;
   border: 2px solid red;
 }
