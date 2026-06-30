@@ -2,10 +2,15 @@
    GLOBAL
 ===============*/
 
+.environment {
+  position: relative;
+  overflow-x: hidden;
+}
+
 .environment section {
   height: 100vh;
 
-  @media (orientation: portrait) {
+  @media (max-width: 768px) {
     height: 50vh;
   }
 }
@@ -63,56 +68,9 @@
   width: 100%;
 }
 
-.coral {
+.corals {
   position: absolute;
   bottom: 0;
-  width: 100%;
-}
-
-.coral2 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 0;
-}
-
-.coral3 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  transform: translateY(-100%);
-
-  @media (orientation: portrait) {
-    transform: translateY(0%);
-  }
-}
-
-.coral4 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  transform: translateY(-100%);
-
-  @media (orientation: portrait) {
-    transform: translateY(0%);
-  }
-}
-
-.coral5 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  transform: translateY(-100%);
-
-  @media (orientation: portrait) {
-    transform: translateY(0%);
-  }
-}
-
-.group-silhouette {
-  position: absolute;
-  top: 0;
-  right: 0;
   width: 100%;
   z-index: 2;
 }
