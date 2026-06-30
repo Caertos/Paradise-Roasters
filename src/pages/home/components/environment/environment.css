@@ -109,19 +109,11 @@
   }
 }
 
-.jellyfish {
+.group-silhouette {
   position: absolute;
   top: 0;
   right: 0;
-  width: 15%;
-  z-index: 2;
-}
-
-.fish-silhouette {
-  position: absolute;
-  top: 25%;
-  right: 25%;
-  width: 4%;
+  width: 100%;
   z-index: 2;
 }
 

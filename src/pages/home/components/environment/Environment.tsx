@@ -115,8 +115,7 @@ export default function Environment() {
         <div className="school-fish group">
           <Animal type="fish" source="fish-school" size="big" ext=".svg" />
         </div>
-        <img src="/jellyfish.svg" alt="" className="jellyfish" />
-        <img src="/fish-silhouette.svg" alt="" className="fish-silhouette" />
+        <img src="/group-silhouette.svg" alt="" className="group-silhouette" />
       </section>
       <section className="biome6">
         <img src="/coral3.webp" alt="" className="coral3" />
