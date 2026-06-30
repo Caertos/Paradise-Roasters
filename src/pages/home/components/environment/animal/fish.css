@@ -1,7 +1,6 @@
 .butterflyfish {
   position: absolute;
   left: -31%;
-  --wrap: 2500px;
 }
 
 .animal-fish:nth-child(2) {
