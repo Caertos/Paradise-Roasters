@@ -8,7 +8,7 @@ interface AnimalProps {
   className?: string;
 }
 
-const URL_BASE = "/";
+const URL_BASE = "/animals/";
 
 export default function Animal({
   type,
