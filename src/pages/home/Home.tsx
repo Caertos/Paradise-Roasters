@@ -14,6 +14,9 @@ export default function Home() {
       <div className="products-overlay">
         <ProductCard product={products[0]} />
         <ProductCard product={products[1]} />
+        <ProductCard product={products[2]} />
+        <ProductCard product={products[3]} />
+        <ProductCard product={products[4]} />
       </div>
     </div>
   );
