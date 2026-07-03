@@ -40,9 +40,11 @@ const Navbar: React.FC = () => {
         <span />
         <span />
       </button>
-      <div
+      <button
+        type="button"
         className={`nav-backdrop ${open ? "nav-backdrop--visible" : ""}`}
         onClick={() => setOpen(false)}
+        aria-label="Close menu"
       />
       <ul className={`nav-list ${open ? "nav-list--open" : ""}`}>
         {navItems.map((item) => (
