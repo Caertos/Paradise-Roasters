@@ -1,4 +1,5 @@
 .home {
+  position: relative;
   min-height: 100vh;
   background:
     linear-gradient(
@@ -14,4 +15,57 @@
   background-blend-mode: multiply;
   background-size: auto;
   background-repeat: no-repeat, repeat;
+}
+
+.products-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  border: 2px solid green;
+  overflow: hidden;
+}
+
+.products-overlay .product-card {
+  pointer-events: auto;
+}
+
+.products-overlay .product-card:first-child {
+  top:22%;
+  left: 5%;
+
+  @media (max-width: 500px) {
+    top: 18%;
+  }
+}
+
+.products-overlay .product-card:nth-child(2) {
+  top: 22%;
+  right: -10%;
+  left: auto;
+
+  .product-card__info {
+    left: -40%;
+    text-align: right;
+  }
+
+  .product-card__tagline {
+    border-left: none;
+    border-right: 3px solid #dee43d;
+    padding-left: 0;
+    padding-right: 0.5rem;
+  }
+
+  .product__price-button {
+    margin-top: 0.5rem;
+    flex-direction: row-reverse;
+  }
+
+  @media (max-width: 768px) {
+    top: 33%;
+  }
+
+  @media (max-width: 500px) {
+    top: 24%;
+  }
 }

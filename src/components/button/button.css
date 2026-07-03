@@ -1,0 +1,27 @@
+.button {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.6rem, 0.9vw, 0.9rem);
+  font-weight: 500;
+  color: #052624;
+  background-color: #d9e021;
+  background-image: radial-gradient(circle, white 100%);
+  background-size: 0% 0%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  outline: 1px solid white;
+  outline-offset: 3px;
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  transition: background-size 0.4s ease, transform 0.15s;
+  width: fit-content;
+}
+
+.button:hover {
+  background-size: 200% 200%;
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
