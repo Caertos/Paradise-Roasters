@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HomeIcon, CartIcon } from "@/assets/Icons";
 
@@ -9,7 +10,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: <HomeIcon />, href: "/" },
+  { label: <><HomeIcon /><span className="home-text">Home</span></>, href: "/" },
   { label: "Products", href: "/products" },
   { label: "About us", href: "/about" },
   { label: "Blogs", href: "/blogs" },
@@ -25,12 +26,32 @@ const navItems: NavItem[] = [
 ];
 
 const Navbar: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <nav className="navbar">
-      <ul className="nav-list">
+      <button
+        className={`hamburger ${open ? "hamburger--open" : ""}`}
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+        type="button"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+      <div
+        className={`nav-backdrop ${open ? "nav-backdrop--visible" : ""}`}
+        onClick={() => setOpen(false)}
+      />
+      <ul className={`nav-list ${open ? "nav-list--open" : ""}`}>
         {navItems.map((item) => (
           <li key={item.href} className="nav-item">
-            <NavLink to={item.href} className="nav-link">
+            <NavLink
+              to={item.href}
+              className="nav-link"
+              onClick={() => setOpen(false)}
+            >
               {item.label}
             </NavLink>
           </li>
