@@ -1,0 +1,104 @@
+.product-card {
+  position: absolute;
+  width: 33%;
+  flex-shrink: 0;
+  overflow: visible;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  @media (max-width: 768px) {
+    width: 50%;
+  }
+}
+
+.product-card--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Product image ── */
+
+.product-card__image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+/* ── Info panel ── */
+
+.product-card__info {
+  position: absolute;
+  bottom: 8%;
+  left: 60%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 50%;
+}
+
+.product-card--left .product-card__info {
+  right: -30%;
+  text-align: left;
+}
+
+.product-card--right .product-card__info {
+  left: -30%;
+  text-align: left;
+}
+
+.product-card--center .product-card__info {
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  align-items: center;
+}
+
+/* ── Typography ── */
+
+.product-card__title-line1 {
+  font-family: "Amsterdam", cursive;
+  font-size: clamp(3rem, 3.6vw, 3.6rem);
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.product-card__title-line2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3rem, 3.6vw, 3.6rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.product-card__price {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.35rem, 2.1vw, 2.1rem);
+  font-weight: 700;
+  color: #dee43d;
+  margin-top: 0.3rem;
+}
+
+.product-card .button {
+  margin-left: 1.2rem;
+}
+
+.product-card__tagline {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.975rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+  color: #fff;
+  margin: 0.2rem 0 0;
+  line-height: 1.3;
+  border-left: 3px solid #dee43d;
+  padding-left: 0.5rem;
+}
+
