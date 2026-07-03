@@ -21,6 +21,7 @@ export default function Animal({
     <img
       src={`${URL_BASE}${source}${ext}`}
       alt=""
+      loading="lazy"
       className={`animal animal-${type} animal-${size} ${className}`}
     />
   );

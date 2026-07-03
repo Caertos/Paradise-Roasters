@@ -11,6 +11,7 @@ export default function Cloud({ source }: CloudProps) {
     <img
       src={`${URL_BASE}${source}.svg`}
       alt=""
+      loading="lazy"
       className={`cloud ${source}`}
     />
   );
