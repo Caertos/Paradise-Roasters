@@ -88,11 +88,11 @@ export default function Environment() {
         </div>
       </section>
       <section className="biome2">
-        <img src="/enviroment/mountains.svg" alt="" className="mountains-reflected" />
-        <img src="/enviroment/water-light.webp" alt="" className="waterReflection" />
-        <img src="/enviroment/palm-trees.webp" alt="" className="palm-trees" />
-        <img src="/enviroment/island.webp" alt="" className="island" />
-        <img src="/enviroment/marine-shadows.webp" alt="" className="marine-shadow" />
+        <img src="/enviroment/mountains.svg" alt="" className="mountains-reflected" loading="lazy" />
+        <img src="/enviroment/water-light.webp" alt="" className="waterReflection" loading="lazy" />
+        <img src="/enviroment/palm-trees.webp" alt="" className="palm-trees" loading="lazy" />
+        <img src="/enviroment/island.webp" alt="" className="island" loading="lazy" />
+        <img src="/enviroment/marine-shadows.webp" alt="" className="marine-shadow" loading="lazy" />
       </section>
       <section className="biome3">
         <div className="butterflyfish group">
@@ -117,7 +117,7 @@ export default function Environment() {
         </div>
       </section>
       <section className="biome6"></section>
-      <img src="/enviroment/corals.webp" alt="" className="corals" />
+      <img src="/enviroment/corals.webp" alt="" className="corals" fetchPriority="high" />
     </div>
   );
 }
