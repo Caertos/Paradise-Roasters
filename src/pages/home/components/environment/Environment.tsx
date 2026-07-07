@@ -113,6 +113,12 @@ export default function Environment() {
         </div>
       </section>
       <section className="biome4">
+        <div className="tasteparadise">
+          <div className="tasteparadise__text">
+            <h2 className="tasteparadise__title">TASTE<br /><span className="tasteparadise__outline">PARADISE.</span></h2>
+            <p className="tasteparadise__subtitle">PRESERVE<br />NATURE.</p>
+          </div>
+        </div>
         <div className="lone-fish group">
           <Animal type="fish" source="fish" size="xx-big" ext=".svg" />
         </div>
@@ -122,7 +128,36 @@ export default function Environment() {
           <Animal type="fish" source="fish-school" size="big" ext=".svg" />
         </div>
       </section>
-      <section className="biome6"></section>
+      <section className="biome6">
+        <div className="footer-container">
+          <div className="footer-container__left">
+            <h2 className="footer__title">The Origin<br />of Our<br />Inspiration</h2>
+            <p className="footer__text">
+              Inspired by the natural beauty of The Bahamas, we offer specialty coffee
+              experiences that celebrate biodiversity, island culture, and conscious living.
+              Every blend is crafted to connect people with nature while promoting
+              appreciation for the ecosystems that make our islands unique.
+            </p>
+            <Button className="button--products">Products</Button>
+          </div>
+          <div className="footer-container__center">
+            <img src="/footer-pic.png" alt="Paradise Roasters" className="footer-pic" />
+          </div>
+          <div className="footer-container__right">
+            <img src="/Logo.svg" alt="Paradise Roasters" className="footer-logo" />
+            <div className="footer-dots">
+              {Array.from({ length: 32 }).map((_, i) => (
+                <span key={i} className="footer-dots__dot"></span>
+              ))}
+            </div>
+            <div className="footer-whatsapp">
+              <img src="/whatsappico.svg" alt="WhatsApp" className="footer-whatsapp__icon" />
+              <p className="footer-whatsapp__text">Contact us<br />on WhatsApp:</p>
+              <a href="tel:5555555555" className="footer-whatsapp__phone">555 555 55 55</a>
+            </div>
+          </div>
+        </div>
+      </section>
       <img src="/enviroment/corals.webp" alt="" className="corals" fetchPriority="high" />
     </div>
   );
