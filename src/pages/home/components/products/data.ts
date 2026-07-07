@@ -64,6 +64,6 @@ export const products: Product[] = [
       "The Marlin represents the untamed power of the open sea. A healthy ocean requires a healthy food chain, starting from the smallest plankton to the giants of the deep. By respecting our marine boundaries and keeping our beaches clean, we protect the vital pulse of the Atlantic.",
     image: "/products/Marlin.png",
     decorativeImages: ["/products/marlin-decorative.png"],
-    align: "center",
+    align: "right",
   },
 ];
