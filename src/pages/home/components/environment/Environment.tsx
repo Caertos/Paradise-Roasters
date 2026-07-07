@@ -3,6 +3,7 @@ import { useScroll } from "@/hooks/useScroll";
 import Sun from "./sun/Sun";
 import Cloud from "./cloud/Cloud";
 import Animal from "./animal/Animal";
+import Button from "@/components/button/Button";
 
 import "./environment.css";
 import "./animal/flamingos.css";
@@ -13,6 +14,11 @@ export default function Environment() {
   return (
     <div className="environment">
       <section className="biome1">
+        <div className="biome1__text">
+          <p className="biome1__inspired">Inspired By</p>
+          <h2 className="biome1__land">Land and Ocean</h2>
+          <Button className="button--join">Join</Button>
+        </div>
         <Sun />
         <Cloud source="cloud1" />
         <Cloud source="cloud2" />
