@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Navbar from "./components/navbar/Navbar";
 import LoadingScreen from "./components/loading/LoadingScreen";
 import { useAllImagesLoaded } from "./hooks/useAllImagesLoaded";
-import "./App.css";
 import Home from "./pages/home/Home";
 
 function App() {

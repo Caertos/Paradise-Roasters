@@ -254,10 +254,6 @@
   gap: 1rem;
 }
 
-.footer-container__side {
-  flex: 1;
-}
-
 .footer-container__right {
   width: 25%;
   padding: 2rem;
