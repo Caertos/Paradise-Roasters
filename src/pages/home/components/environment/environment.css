@@ -204,6 +204,12 @@
     top: 25%;
   }
 
+  @media (max-width: 500px) {
+    .tasteparadise {
+      top: 10%;
+    }
+  }
+
   .tasteparadise__title,
   .tasteparadise__subtitle {
     font-size: clamp(1.6875rem, 5.0625vw, 50.625px);
