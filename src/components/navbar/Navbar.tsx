@@ -15,6 +15,10 @@ const navItems: NavItem[] = [
   { label: "About us", href: "/about" },
   { label: "Blogs", href: "/blogs" },
   {
+    label: "User",
+    href: "/user",
+  },
+  {
     label: (
       <span className="cart-label">
         <CartIcon />
