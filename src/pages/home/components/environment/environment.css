@@ -38,20 +38,20 @@
 }
 
 .biome1__inspired {
-  font-family: "Amsterdam", cursive;
+  font-family: var(--font-display);
   font-size: clamp(3rem, 6.435vw, 127.5px);
   font-weight: 400;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   line-height: 1.1;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .biome1__land {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(2.25rem, 4.92vw, 97.5px);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   line-height: 1.2;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -167,14 +167,14 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 1rem;
-  border-left: 5px solid #dee43d;
+  border-left: 5px solid var(--color-accent-bright);
 }
 
 .tasteparadise__title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(2.25rem, 6.75vw, 67.5px);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   line-height: 1.22;
   letter-spacing: 0.1em;
@@ -182,17 +182,17 @@
 }
 
 .tasteparadise__outline {
-  color: #145B8D;
-  -webkit-text-stroke: 1.5px #fff;
+  color: var(--color-ocean);
+  -webkit-text-stroke: 1.5px var(--color-white);
   paint-order: stroke fill;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .tasteparadise__subtitle {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(2.25rem, 6.75vw, 67.5px);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   line-height: 1.22;
   letter-spacing: 0.1em;
@@ -233,7 +233,7 @@
 .biome6 {
   position: relative;
   width: 100%;
-  background-color: #102F54;
+  background-color: var(--color-night);
 }
 
 .footer-container {
@@ -284,7 +284,7 @@
 .footer-dots__dot {
   width: 6px;
   height: 6px;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 50%;
 }
 
@@ -301,20 +301,20 @@
 }
 
 .footer-whatsapp__text {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(0.6rem, 1vw, 1rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   text-align: right;
   line-height: 1.3;
 }
 
 .footer-whatsapp__phone {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   font-weight: 700;
-  color: #dee43d;
+  color: var(--color-accent-bright);
   text-decoration: none;
   letter-spacing: 0.05em;
 }
@@ -327,19 +327,19 @@
 }
 
 .footer__title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(1.5rem, 3vw, 3rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   line-height: 1.2;
 }
 
 .footer__text {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(0.675rem, 1.35vw, 1.35rem);
   font-weight: 300;
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
   line-height: 1.5;
 }
