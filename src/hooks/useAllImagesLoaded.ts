@@ -11,7 +11,10 @@ export function useAllImagesLoaded(): boolean {
     if (images.length === 0) return;
 
     const pendingImages = new Set<HTMLImageElement>();
-    const cleanupMap = new Map<HTMLImageElement, { onLoad: () => void; onError: () => void }>();
+    const cleanupMap = new Map<
+      HTMLImageElement,
+      { onLoad: EventListener; onError: EventListener }
+    >();
 
     const checkAllLoaded = () => {
       if (pendingImages.size === 0) {
@@ -26,11 +29,11 @@ export function useAllImagesLoaded(): boolean {
 
       pendingImages.add(img);
 
-      const onLoad = () => {
+      const onLoad: EventListener = () => {
         pendingImages.delete(img);
         checkAllLoaded();
       };
-      const onError = () => {
+      const onError: EventListener = () => {
         pendingImages.delete(img);
         checkAllLoaded();
       };
