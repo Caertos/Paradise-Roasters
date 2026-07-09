@@ -1,10 +1,14 @@
 import "./animal.css";
 
+type AnimalType = "flamingo" | "fish";
+type AnimalSize = "big" | "medium" | "small" | "x-small" | "x-big";
+type AnimalExt = ".svg" | ".webp";
+
 interface AnimalProps {
-  type: string;
+  type: AnimalType;
   source: string;
-  size: string;
-  ext: string;
+  size: AnimalSize;
+  ext: AnimalExt;
   className?: string;
 }
 

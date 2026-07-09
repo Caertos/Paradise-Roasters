@@ -14,7 +14,7 @@ export default function Biome6() {
             Every blend is crafted to connect people with nature while promoting
             appreciation for the ecosystems that make our islands unique.
           </p>
-          <Button className="button--products">Products</Button>
+          <Button variant="products">Products</Button>
         </div>
         <div className="footer-container__center">
           <img src="/footer-pic.png" alt="Paradise Roasters" className="footer-pic" />

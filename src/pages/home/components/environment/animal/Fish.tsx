@@ -2,7 +2,7 @@ import Animal from "./Animal";
 
 interface FishProps {
   source: string;
-  size: "big" | "medium" | "small" | "x-small" | "xx-big";
+  size: "big" | "medium" | "small" | "x-small" | "x-big";
   className?: string;
 }
 

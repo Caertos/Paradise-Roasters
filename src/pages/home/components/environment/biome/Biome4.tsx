@@ -15,7 +15,7 @@ export default function Biome4() {
         </div>
       </div>
       <div className="lone-fish group">
-        <Fish source="fish" size="xx-big" />
+        <Fish source="fish" size="x-big" />
       </div>
     </section>
   );

@@ -12,7 +12,7 @@ export default function Biome1() {
       <div className="biome1__text">
         <p className="biome1__inspired">Inspired By</p>
         <h2 className="biome1__land">Land and Ocean</h2>
-        <Button className="button--join">Join</Button>
+        <Button variant="join">Join</Button>
       </div>
       <Sun />
       <Cloud source="cloud1" />

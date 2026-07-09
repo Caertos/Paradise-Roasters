@@ -1,7 +1,7 @@
 import "./cloud.css";
 
 interface CloudProps {
-  source: string;
+  source: "cloud1" | "cloud2" | "cloud3" | "cloud4";
 }
 
 const URL_BASE = "/clouds/";
