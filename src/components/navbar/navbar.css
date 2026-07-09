@@ -102,9 +102,8 @@
 }
 
 .nav-list li:first-child .nav-link.active {
-  background-color: var(--color-cream);
-  justify-content: center;
-  padding-left: 0;
+  background-color: transparent;
+  padding-left: 1.5rem;
   padding-right: 0;
 }
 
@@ -233,9 +232,6 @@
   }
 
   .nav-list li:first-child .nav-link.active {
-    background-color: var(--color-cream);
-    justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
+    background-color: transparent;
   }
 }
