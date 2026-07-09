@@ -1,0 +1,124 @@
+.biome6 {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-night);
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  z-index: 3;
+}
+
+.footer-container__left {
+  width: 25%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-container__right {
+  width: 25%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-logo {
+    width: 100px;
+  }
+}
+
+.footer-dots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 12px 12px;
+}
+
+.footer-dots__dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+}
+
+.footer-whatsapp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.footer-whatsapp__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-whatsapp__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.6rem, 1vw, 1rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+  text-align: right;
+  line-height: 1.3;
+}
+
+.footer-whatsapp__phone {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+  font-weight: 700;
+  color: var(--color-accent-bright);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.footer-container__center {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.footer__title {
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.675rem, 1.35vw, 1.35rem);
+  font-weight: 300;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.button--products {
+  width: fit-content;
+  font-size: clamp(0.9rem, 1.35vw, 1.35rem);
+  padding: 0.6rem 1.8rem;
+}
+
+.footer-pic {
+  width: 100%;
+  height: auto;
+}

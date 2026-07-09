@@ -12,11 +12,9 @@ export default function Home() {
       </a>
       <Environment />
       <div className="products-overlay">
-        <ProductCard product={products[0]} />
-        <ProductCard product={products[1]} />
-        <ProductCard product={products[2]} />
-        <ProductCard product={products[3]} />
-        <ProductCard product={products[4]} />
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
+        ))}
       </div>
     </div>
   );
