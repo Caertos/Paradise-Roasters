@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import type { Product } from "./types";
+import { useInView } from "@/hooks/useInView";
 import Button from "@/components/button/Button";
 import "./product-card.css";
 
@@ -9,22 +10,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const visible = useInView(ref);
 
   return (
     <div

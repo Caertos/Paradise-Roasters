@@ -18,7 +18,7 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0.4rem;
-  background: #d9d9d9bf;
+  background: var(--color-cream-translucent);
   border: none;
   cursor: pointer;
   position: relative;
@@ -29,17 +29,17 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: #052624;
+  background: var(--color-ink);
   transition: transform 0.3s, opacity 0.3s;
   transform-origin: center;
 }
 
 .hamburger--open {
-  background: #052624;
+  background: var(--color-ink);
 }
 
 .hamburger--open span {
-  background: #fff;
+  background: var(--color-white);
 }
 
 .hamburger--open span:nth-child(1) {
@@ -75,36 +75,35 @@
   height: 100%;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
-  background-color: #d9d9d9bf;
-  color: #052624;
+  background-color: var(--color-cream-translucent);
+  color: var(--color-ink);
   text-transform: uppercase;
   justify-content: center;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-link.active {
-  background-color: #ded9bc;
-  color: #7a6c51;
+  background-color: var(--color-cream);
+  color: var(--color-gold);
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
 .nav-link.active .home-icon-svg path:first-child {
-  fill: #ded9bc;
+  fill: var(--color-cream);
 }
 
 .nav-link.active .home-icon-svg path:not(:first-child) {
-  fill: #7a6c51;
+  fill: var(--color-gold);
 }
 
 .nav-link.active .cart-icon-svg path {
-  fill: #7a6c51;
+  fill: var(--color-gold);
 }
 
 .nav-list li:first-child .nav-link.active {
-  background-color: #ded9bc;
-  justify-content: center;
-  padding-left: 0;
+  background-color: transparent;
+  padding-left: 1.5rem;
   padding-right: 0;
 }
 
@@ -187,7 +186,7 @@
     height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
-    background: #d9d9d9f0;
+    background: var(--color-cream-overlay);
     padding: 4.5rem 1.5rem 2rem;
     gap: 0;
     transform: translateX(100%);
@@ -215,27 +214,24 @@
   }
 
   .nav-link.active {
-    background-color: #ded9bc;
-    color: #7a6c51;
-    border-bottom-color: #7a6c5133;
+    background-color: var(--color-cream);
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold)33;
   }
 
   .nav-link.active .home-icon-svg path:first-child {
-    fill: #ded9bc;
+    fill: var(--color-cream);
   }
 
   .nav-link.active .home-icon-svg path:not(:first-child) {
-    fill: #7a6c51;
+    fill: var(--color-gold);
   }
 
   .nav-link.active .cart-icon-svg path {
-    fill: #7a6c51;
+    fill: var(--color-gold);
   }
 
   .nav-list li:first-child .nav-link.active {
-    background-color: #ded9bc;
-    justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
+    background-color: transparent;
   }
 }

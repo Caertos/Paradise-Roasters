@@ -1,0 +1,23 @@
+:root {
+  --color-ink: #052624;
+  --color-teal: #488484;
+  --color-teal-dark: #0f7c7b;
+  --color-ocean: #145b8d;
+  --color-ocean-dark: #0d4d87;
+  --color-ocean-darker: #163a6b;
+  --color-night: #102f54;
+
+  --color-cream: #ded9bc;
+  --color-cream-translucent: #d9d9d9bf;
+  --color-cream-overlay: #d9d9d9f0;
+
+  --color-gold: #7a6c51;
+
+  --color-accent: #d9e021;
+  --color-accent-bright: #dee43d;
+
+  --color-white: #ffffff;
+
+  --font-body: "Montserrat", sans-serif;
+  --font-display: "Amsterdam", cursive;
+}

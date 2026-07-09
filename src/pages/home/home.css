@@ -4,11 +4,11 @@
   background:
     linear-gradient(
       to bottom,
-      #488484 0%,
-      #0f7c7b 25%,
-      #145b8d 50%,
-      #0d4d87 75%,
-      #163a6b 100%
+      var(--color-teal) 0%,
+      var(--color-teal-dark) 25%,
+      var(--color-ocean) 50%,
+      var(--color-ocean-dark) 75%,
+      var(--color-ocean-darker) 100%
     ),
     url("@/assets/texturaparadise.webp");
 
