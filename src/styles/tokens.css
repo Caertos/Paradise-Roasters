@@ -20,4 +20,31 @@
 
   --font-body: "Montserrat", sans-serif;
   --font-display: "Amsterdam", cursive;
+
+  /* ── Espaciado de secciones ── */
+  --space-section:      clamp(3rem, 8vh, 5rem);
+  --space-section-lg:   clamp(4rem, 10vh, 6rem);
+  --space-hero-top:     clamp(9rem, 14vh, 12rem);
+  --space-hero-bottom:  clamp(3rem, 8vh, 5rem);
+
+  /* ── Layout ── */
+  --gap-grid:     clamp(1.5rem, 3vw, 2.5rem);
+  --gap-layout:   clamp(2rem, 5vw, 4rem);
+  --space-card:   clamp(1.5rem, 3vw, 2.5rem);
+  --space-card-lg: clamp(2.5rem, 6vw, 4rem);
+
+  /* ── Tipografía — Display (Amsterdam) ── */
+  --text-display-hero: clamp(2.4rem, 5.5vw, 4.2rem);
+  --text-display-xl:   clamp(1.8rem, 3.2vw, 2.6rem);
+  --text-display-lg:   clamp(1.6rem, 2.8vw, 2.4rem);
+  --text-display-md:   clamp(1.6rem, 2.5vw, 2rem);
+  --text-display-sm:   clamp(1.35rem, 1.8vw, 1.65rem);
+
+  /* ── Tipografía — Body (Montserrat) ── */
+  --text-hero-sub:  clamp(1.1rem, 1.8vw, 1.4rem);
+  --text-body:      clamp(0.9rem, 1.1vw, 1rem);
+  --text-body-sm:   clamp(0.85rem, 1vw, 0.95rem);
+  --text-caption:   clamp(0.8rem, 0.95vw, 0.9rem);
+  --text-xs:        clamp(0.75rem, 0.9vw, 0.85rem);
+  --text-2xs:       clamp(0.7rem, 0.85vw, 0.8rem);
 }

@@ -1,0 +1,352 @@
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT PAGE
+   Page-specific styles only. Shared patterns
+   (.container, .section-title, .image-placeholder, .page-bg)
+   live in src/index.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+.about {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    var(--color-ocean-darker) 0%,
+    var(--color-night) 40%,
+    var(--color-ink) 100%
+  );
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+/* ── Our Story ── */
+
+.about-story {
+  padding-block: var(--space-section);
+}
+
+.about-story__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-layout);
+  align-items: center;
+}
+
+.about-story__text p {
+  font-size: var(--text-body);
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+  color: var(--color-cream);
+  opacity: 0.85;
+}
+
+.about-story__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Our Values ── */
+
+.about-values {
+  padding-block: var(--space-section);
+  /* Slightly lighter band to create visual separation */
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(72 132 132 / 0.06),
+    transparent
+  );
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-grid);
+  margin-top: 2.5rem;
+}
+
+/* Value card */
+.value-card {
+  background: rgb(222 217 188 / 0.06);
+  border: 1px solid rgb(222 217 188 / 0.1);
+  border-radius: 8px;
+  padding: var(--space-card);
+  text-align: center;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.value-card:hover {
+  border-color: var(--color-gold);
+  background: rgb(222 217 188 / 0.1);
+}
+
+.value-card__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: rgb(122 108 81 / 0.15);
+  position: relative;
+}
+
+/* Simple SVG-like shapes using CSS */
+.value-card__icon::after {
+  content: "";
+  position: absolute;
+  inset: 25%;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+.value-card__icon--leaf::after {
+  border-radius: 60% 5% 60% 40%;
+  transform: rotate(-20deg);
+}
+
+.value-card__icon--quality::after {
+  border-radius: 50%;
+  inset: 20%;
+  background: transparent;
+  border: 2.5px solid var(--color-gold);
+  border-top-color: transparent;
+}
+
+.value-card__icon--community::after {
+  border-radius: 50%;
+  inset: 15% 15% 15% 30%;
+}
+
+.value-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 400;
+  color: var(--color-gold);
+  margin: 0 0 0.75rem;
+}
+
+.value-card p {
+  font-size: var(--text-body-sm);
+  line-height: 1.65;
+  margin: 0;
+  color: var(--color-cream);
+  opacity: 0.75;
+}
+
+/* ── Process Steps ── */
+
+.about-process {
+  padding-block: var(--space-section);
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-layout);
+  align-items: center;
+  padding-block: clamp(2rem, 5vh, 3.5rem);
+}
+
+.process-step + .process-step {
+  border-top: 1px solid rgb(222 217 188 / 0.06);
+}
+
+.process-step--reverse .process-step__text {
+  order: -1;
+}
+
+.process-step__number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: var(--color-teal);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  opacity: 0.5;
+}
+
+.process-step__text h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 400;
+  color: var(--color-gold);
+  margin: 0 0 0.75rem;
+}
+
+.process-step__text p {
+  font-size: var(--text-body);
+  line-height: 1.75;
+  color: var(--color-cream);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ── Team Section ── */
+
+.about-team {
+  padding-block: var(--space-section);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(72 132 132 / 0.06),
+    transparent
+  );
+}
+
+.about-team__intro {
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto 2.5rem;
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--color-cream);
+  opacity: 0.8;
+}
+
+.about-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-grid);
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 400;
+  color: var(--color-cream);
+  margin: 1rem 0 0.25rem;
+}
+
+.team-card__role {
+  font-size: var(--text-caption);
+  color: var(--color-gold);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ── CTA Section ── */
+
+.about-cta {
+  padding-block: var(--space-section-lg);
+}
+
+.about-cta__inner {
+  text-align: center;
+  background: rgb(222 217 188 / 0.05);
+  border: 1px solid rgb(222 217 188 / 0.08);
+  border-radius: 12px;
+  padding: var(--space-card-lg);
+}
+
+.about-cta__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xl);
+  font-weight: 400;
+  color: var(--color-cream);
+  margin: 0 0 0.75rem;
+}
+
+.about-cta__text {
+  font-size: var(--text-body);
+  color: var(--color-cream);
+  opacity: 0.75;
+  max-width: 30rem;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
+.about-cta__button {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+  background: var(--color-accent);
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  outline: 1px solid var(--color-white);
+  outline-offset: 3px;
+  transition: background-color 0.3s, transform 0.15s;
+}
+
+.about-cta__button:hover {
+  background: var(--color-accent-bright);
+  transform: scale(1.04);
+}
+
+.about-cta__button:active {
+  transform: scale(0.97);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Tablet — 1024px */
+@media (max-width: 1024px) {
+  .about-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-step {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Vertical tablet / large phone — 768px */
+@media (max-width: 768px) {
+  .about-story__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story__media {
+    order: -1;
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  .about-values__grid {
+    grid-template-columns: 1fr;
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+
+  .process-step {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .process-step--reverse .process-step__text {
+    order: 0;
+  }
+
+  .process-step__media {
+    max-width: 24rem;
+    margin-inline: auto;
+  }
+
+  .about-team__grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 24rem;
+    margin-inline: auto;
+  }
+}
+
+/* Small phone — 480px */
+@media (max-width: 480px) {
+  .about-team__grid {
+    grid-template-columns: 1fr;
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+
+  .about-cta__inner {
+    padding: 2rem 1.25rem;
+  }
+}

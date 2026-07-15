@@ -38,3 +38,158 @@ body,
   left: 2%;
   z-index: 10;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SHARED PAGE PATTERNS
+   Reusable building blocks for any page that follows the
+   brand's dark gradient look (About, Products, Blogs, etc.).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Container ── */
+
+.container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ── Section titles ── */
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--color-gold);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.section-title--center {
+  text-align: center;
+}
+
+/* ── Page background ── */
+
+.page-bg {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    var(--color-ocean-darker) 0%,
+    var(--color-night) 40%,
+    var(--color-ink) 100%
+  );
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+/* ── Shared hero ── */
+
+.page-hero {
+  position: relative;
+  padding-block: var(--space-hero-top) var(--space-hero-bottom);
+  text-align: center;
+  border-bottom: 1px solid rgb(222 217 188 / 0.08);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-hero);
+  font-weight: 400;
+  color: var(--color-cream);
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.page-hero__subtitle {
+  font-size: var(--text-hero-sub);
+  max-width: 36rem;
+  margin-inline: auto;
+  color: var(--color-cream);
+  opacity: 0.75;
+  line-height: 1.7;
+}
+
+/* ── Generic card ── */
+
+.generic-card {
+  background: rgb(222 217 188 / 0.06);
+  border: 1px solid rgb(222 217 188 / 0.1);
+  border-radius: 8px;
+  padding: var(--space-card);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.generic-card:hover {
+  border-color: var(--color-gold);
+  background: rgb(222 217 188 / 0.1);
+}
+
+/* ── Image placeholders ── */
+
+.image-placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgb(72 132 132 / 0.12);
+  border: 2px dashed rgb(122 108 81 / 0.35);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.image-placeholder:hover {
+  border-color: var(--color-gold);
+}
+
+.image-placeholder--aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.image-placeholder--aspect-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.image-placeholder--aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.image-placeholder__ratio {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  color: var(--color-gold);
+  opacity: 0.5;
+  user-select: none;
+}
+
+.image-placeholder__hint {
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+  color: var(--color-cream);
+  opacity: 0.4;
+  margin-top: 0.5rem;
+  user-select: none;
+  text-align: center;
+  padding-inline: 0.5rem;
+}
+
+/* ── Shared responsive tweaks ── */
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding-block: clamp(5rem, 10vh, 7rem) clamp(2rem, 5vh, 3rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .page-hero {
+    padding-block: 4rem 2rem;
+  }
+}
