@@ -63,3 +63,14 @@
     letter-spacing: 0.2em;
   }
 }
+
+@media (max-width: 425px) {
+  .scroll-indicator__arrow {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .scroll-indicator__text {
+    font-size: clamp(4.5rem, 10vw, 6rem);
+  }
+}
