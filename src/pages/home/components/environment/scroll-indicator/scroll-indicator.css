@@ -1,0 +1,51 @@
+.scroll-indicator {
+  position: absolute;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+
+  bottom: 10%;
+  left: 5%;
+
+  @media (max-width: 768px) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+  }
+}
+
+.scroll-indicator--visible {
+  opacity: 1;
+}
+
+.scroll-indicator__arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: pulse-down 2s ease-in-out infinite;
+}
+
+.scroll-indicator__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  color: var(--color-white);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes pulse-down {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+}

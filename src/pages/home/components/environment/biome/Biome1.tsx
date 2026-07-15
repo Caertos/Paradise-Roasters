@@ -2,6 +2,7 @@ import Sun from "../sun/Sun";
 import Cloud from "../cloud/Cloud";
 import Flamingo from "../animal/Flamingo";
 import Button from "@/components/button/Button";
+import ScrollIndicator from "../scroll-indicator/ScrollIndicator";
 
 import "./biome1.css";
 import "../animal/flamingos.css";
@@ -33,6 +34,7 @@ export default function Biome1() {
         <Flamingo source="flamingo-silhouette" size="x-small" ext=".svg" />
         <Flamingo source="flamingo-silhouette" size="x-small" ext=".svg" />
       </div>
+      <ScrollIndicator />
     </section>
   );
 }
