@@ -40,7 +40,6 @@
   letter-spacing: 0.1em;
   opacity: 0.2;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
-  animation: pulse-text 2s ease-in-out infinite;
 }
 
 @keyframes pulse-down {
@@ -51,17 +50,6 @@
   50% {
     opacity: 0.2;
     transform: translateY(6px);
-  }
-}
-
-@keyframes pulse-text {
-  0%, 100% {
-    opacity: 0.1;
-    letter-spacing: 0.1em;
-  }
-  50% {
-    opacity: 0.2;
-    letter-spacing: 0.2em;
   }
 }
 
