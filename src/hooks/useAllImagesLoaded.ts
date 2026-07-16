@@ -8,7 +8,7 @@ export function useAllImagesLoaded(): boolean {
       document.querySelectorAll<HTMLImageElement>("img:not([loading='lazy'])")
     );
 
-    if (images.length === 0) return;
+    if (images.length === 0) return () => {};
 
     const pendingImages = new Set<HTMLImageElement>();
     const cleanupMap = new Map<
