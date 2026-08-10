@@ -1,0 +1,256 @@
+/* ===== Manual de Login y Autenticación — Estilo PDF ===== */
+
+@page {
+  size: letter;
+  margin: 2.2cm 2cm 2.2cm 2cm;
+  @bottom-center {
+    content: "Página " counter(page) " de " counter(pages);
+    font-family: 'DejaVu Sans', sans-serif;
+    font-size: 8pt;
+    color: #888;
+  }
+}
+
+body {
+  font-family: 'DejaVu Sans', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #1a1a1a;
+  max-width: 100%;
+}
+
+/* ===== Headers ===== */
+h1 {
+  font-size: 22pt;
+  color: #1a3c6d;
+  border-bottom: 3px solid #2563eb;
+  padding-bottom: 6pt;
+  margin-top: 28pt;
+  margin-bottom: 12pt;
+  page-break-before: always;
+}
+
+h1:first-of-type {
+  page-break-before: avoid;
+}
+
+h2 {
+  font-size: 16pt;
+  color: #2563eb;
+  border-bottom: 1.5px solid #93c5fd;
+  padding-bottom: 4pt;
+  margin-top: 22pt;
+  margin-bottom: 8pt;
+}
+
+h3 {
+  font-size: 13pt;
+  color: #1e40af;
+  margin-top: 16pt;
+  margin-bottom: 6pt;
+}
+
+h4 {
+  font-size: 11.5pt;
+  color: #3b82f6;
+  margin-top: 12pt;
+  margin-bottom: 4pt;
+}
+
+/* ===== Code Blocks ===== */
+pre {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  border-radius: 5px;
+  padding: 12pt 14pt;
+  font-family: 'DejaVu Sans Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.45;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 8pt 0 12pt 0;
+  page-break-inside: avoid;
+}
+
+code {
+  font-family: 'DejaVu Sans Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  padding: 1.5pt 5pt;
+  border-radius: 3px;
+  border: 1px solid #e2e8f0;
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+/* Syntax highlighting approximations for wkhtmltopdf */
+pre .kw  { color: #c084fc; font-weight: bold; } /* keywords */
+pre .dt  { color: #67e8f9; }                    /* data types */
+pre .dv  { color: #fb923c; }                    /* decimal values */
+pre .fu  { color: #fbbf24; }                    /* function calls */
+pre .st  { color: #34d399; }                    /* strings */
+pre .co  { color: #64748b; font-style: italic; }/* comments */
+pre .ot  { color: #f472b6; }                    /* others */
+pre .cf  { color: #c084fc; font-weight: bold; } /* control flow */
+pre .va  { color: #fbbf24; }                    /* variables */
+pre .sc  { color: #fb923c; }                    /* special chars */
+
+/* ===== Blockquotes ===== */
+blockquote {
+  background-color: #eff6ff;
+  border-left: 4px solid #2563eb;
+  margin: 10pt 0;
+  padding: 8pt 14pt;
+  color: #1e40af;
+  border-radius: 0 4px 4px 0;
+  page-break-inside: avoid;
+}
+
+blockquote p {
+  margin: 4pt 0;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10pt 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+
+th {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  padding: 8pt 10pt;
+  text-align: left;
+}
+
+td {
+  padding: 6pt 10pt;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* ===== Lists ===== */
+ul, ol {
+  margin: 6pt 0;
+  padding-left: 20pt;
+}
+
+li {
+  margin: 3pt 0;
+}
+
+/* ===== Paragraphs ===== */
+p {
+  margin: 5pt 0;
+}
+
+/* ===== Horizontal Rule ===== */
+hr {
+  border: none;
+  border-top: 1px solid #cbd5e1;
+  margin: 18pt 0;
+}
+
+/* ===== Links ===== */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* ===== Strong / Emphasis ===== */
+strong {
+  color: #0f172a;
+}
+
+/* ===== Images ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Checklist ===== */
+input[type="checkbox"] {
+  margin-right: 5pt;
+}
+
+/* ===== Mermaid / Diagram placeholders ===== */
+pre.mermaid, div.mermaid {
+  background-color: #f8fafc;
+  border: 1px dashed #93c5fd;
+  padding: 12pt;
+  text-align: center;
+  font-style: italic;
+  color: #64748b;
+  page-break-inside: avoid;
+}
+
+/* ===== TOC ===== */
+nav#TOC {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 12pt 16pt;
+  margin-bottom: 20pt;
+  page-break-after: always;
+}
+
+nav#TOC ul {
+  list-style: none;
+  padding-left: 8pt;
+}
+
+nav#TOC > ul {
+  padding-left: 0;
+}
+
+nav#TOC a {
+  color: #334155;
+}
+
+nav#TOC li {
+  margin: 4pt 0;
+}
+
+/* ===== Warning / Info boxes ===== */
+.admonition, .warning, .tip, .danger {
+  padding: 10pt 14pt;
+  margin: 10pt 0;
+  border-radius: 5px;
+  border-left: 4px solid;
+  page-break-inside: avoid;
+}
+
+.warning {
+  background-color: #fffbeb;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.danger {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.tip {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+  color: #166534;
+}
