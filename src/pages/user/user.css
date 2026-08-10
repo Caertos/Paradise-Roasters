@@ -29,9 +29,9 @@
 }
 
 .user-profile__name {
-  font-family: var(--font-display);
-  font-size: var(--text-display-lg);
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2.1vw, 1.8rem);
+  font-weight: 700;
   color: var(--color-gold);
   margin: 0 0 0.35rem;
   line-height: 1.2;
@@ -149,6 +149,12 @@
   line-height: 1.1;
 }
 
+.user-dash-card__value--product {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2.1vw, 1.8rem);
+  font-weight: 600;
+}
+
 .user-dash-card__note {
   font-size: var(--text-2xs);
   color: var(--color-teal);
@@ -203,8 +209,9 @@
 }
 
 .user-order-row__item {
-  font-family: var(--font-display);
-  font-size: var(--text-display-sm);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-weight: 600;
   color: var(--color-gold);
   line-height: 1.2;
 }

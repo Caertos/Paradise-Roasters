@@ -159,8 +159,9 @@ body,
 }
 
 .image-placeholder__ratio {
-  font-family: var(--font-display);
-  font-size: var(--text-display-md);
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  font-weight: 600;
   color: var(--color-gold);
   opacity: 0.5;
   user-select: none;

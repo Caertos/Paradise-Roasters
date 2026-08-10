@@ -60,8 +60,9 @@
 }
 
 .cart-item__name {
-  font-family: var(--font-display);
-  font-size: var(--text-display-sm);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-weight: 600;
   color: var(--color-gold);
   margin: 0;
   line-height: 1.2;
