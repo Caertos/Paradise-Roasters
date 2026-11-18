@@ -78,6 +78,7 @@
   background-color: var(--color-cream-translucent);
   color: var(--color-ink);
   text-transform: uppercase;
+  white-space: nowrap;
   justify-content: center;
   transition: background-color 0.2s, color 0.2s;
 }
