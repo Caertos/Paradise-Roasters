@@ -23,6 +23,12 @@ html {
   font-size: clamp(9px, 2vw, 16px);
 }
 
+/* Content pages (everything except the home scene) must not shrink below a
+   readable base: the 9px floor above only suits the home illustration overlay. */
+html:has(.page-bg) {
+  font-size: clamp(14px, 2vw, 16px);
+}
+
 html,
 body,
 #root {
