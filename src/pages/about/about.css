@@ -5,18 +5,6 @@
    live in src/index.css.
    ═══════════════════════════════════════════════════════════════ */
 
-.about {
-  min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    var(--color-ocean-darker) 0%,
-    var(--color-night) 40%,
-    var(--color-ink) 100%
-  );
-  color: var(--color-cream);
-  font-family: var(--font-body);
-}
-
 /* ── Our Story ── */
 
 .about-story {
