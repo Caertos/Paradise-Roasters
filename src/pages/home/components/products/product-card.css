@@ -57,6 +57,7 @@
   gap: 0.2rem;
   width: 40%;
   min-width: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .product-card--left .product-card__info {
@@ -115,4 +116,19 @@
   padding-left: 0.5rem;
 }
 
+/* Root font-size bottoms out at 9px on phones; keep secondary text readable */
+@media (max-width: 500px) {
+  .product-card__tagline {
+    font-size: 12px;
+  }
 
+  .product-card__price {
+    font-size: 15px;
+  }
+
+  .product-card .button {
+    font-size: 11px;
+    padding: 0.5rem 0.9rem;
+    margin-left: 0.6rem;
+  }
+}

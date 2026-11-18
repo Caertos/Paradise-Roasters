@@ -228,14 +228,16 @@
     grid-template-columns: 1fr;
   }
 
+  /* width: 100% — auto margins stop grid items stretching, which collapsed the image */
   .featured-card__media {
+    width: 100%;
     max-width: 32rem;
     margin-inline: auto;
   }
+}
 
+@media (max-width: 560px) {
   .blogs-grid {
     grid-template-columns: 1fr;
-    max-width: 26rem;
-    margin-inline: auto;
   }
 }

@@ -365,23 +365,11 @@
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
 
-@media (max-width: 1024px) {
-  .user-dashboard__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .user-profile {
     grid-template-columns: 1fr;
     text-align: center;
     justify-items: center;
-  }
-
-  .user-dashboard__grid {
-    grid-template-columns: 1fr;
-    max-width: 26rem;
-    margin-inline: auto;
   }
 
   .user-order-row {
@@ -396,6 +384,12 @@
     justify-content: space-between;
     border-top: 1px solid rgb(222 217 188 / 0.08);
     padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .user-dashboard__grid {
+    grid-template-columns: 1fr;
   }
 }
 

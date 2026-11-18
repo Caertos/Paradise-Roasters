@@ -44,7 +44,7 @@
 }
 
 .products-overlay .product-card:nth-child(2) {
-  top: 14%;
+  top: 24%;
   right: 5%;
   left: auto;
 
@@ -57,8 +57,8 @@
   }
 
   @media (max-width: 500px) {
-    top: 20%;
-    left: 25%;
+    top: 22%;
+    left: 15%;
   }
 }
 
@@ -101,6 +101,10 @@
 
   @media (max-width: 1440px) {
     top: 70%;
+    left: 40%;
+  }
+
+  @media (max-width: 1024px) {
     left: 20%;
   }
 
