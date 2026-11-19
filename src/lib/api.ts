@@ -4,7 +4,8 @@
  * - The access token lives only in this module's memory (never in Web Storage).
  * - The refresh token is an HttpOnly cookie, so every request uses
  *   `credentials: "include"` plus the `X-Requested-With` CSRF header.
- * - A 401 triggers a single-flight `POST /auth/refresh` and one retry.
+ * - A 401 triggers a single-flight `POST /auth/refresh` and one retry; the
+ *   refresh is serialized across tabs with the Web Locks API when available.
  */
 
 const API_URL = (import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "");
@@ -163,15 +164,34 @@ async function toResult<T>(response: Response): Promise<T> {
 
 let refreshPromise: Promise<TokenPayload> | null = null;
 
+/** Web Locks name shared by every tab of this origin. */
+const REFRESH_LOCK = "paradise-auth-refresh";
+
+async function requestRefresh(): Promise<TokenPayload> {
+  const response = await send("/auth/refresh", { method: "POST" }, null);
+  return toResult<TokenPayload>(response);
+}
+
 /**
- * Exchanges the refresh cookie for a new token pair. Single-flight: concurrent
- * callers share one request, because the backend treats reuse of a rotated
- * refresh token as theft and revokes the whole family.
+ * Runs the refresh under a cross-tab lock when the Web Locks API exists, so
+ * tabs refresh one at a time and each sends the cookie its predecessor just
+ * received instead of presenting the same cookie twice.
+ */
+function lockedRefresh(): Promise<TokenPayload> {
+  const locks = typeof navigator === "undefined" ? undefined : navigator.locks;
+  if (!locks) return requestRefresh();
+  return locks.request(REFRESH_LOCK, requestRefresh);
+}
+
+/**
+ * Exchanges the refresh cookie for a new token pair. Single-flight within the
+ * tab (concurrent callers share one request) and serialized across tabs via
+ * Web Locks, because the backend treats reuse of a rotated refresh token as
+ * theft and revokes the whole family.
  */
 export function refreshSession(): Promise<TokenPayload> {
   if (!refreshPromise) {
-    refreshPromise = send("/auth/refresh", { method: "POST" }, null)
-      .then((response) => toResult<TokenPayload>(response))
+    refreshPromise = lockedRefresh()
       .then((payload) => {
         setAccessToken(payload.access_token);
         return payload;

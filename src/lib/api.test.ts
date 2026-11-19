@@ -195,3 +195,106 @@ describe("api client", () => {
     expect(headerOf(init, "Content-Type")).toBe("application/json");
   });
 });
+
+/** Minimal Web Locks stub: callbacks for the same name run one at a time. */
+function fakeLocks() {
+  const tails = new Map<string, Promise<unknown>>();
+  const request = vi.fn(
+    (name: string, callback: () => Promise<unknown>): Promise<unknown> => {
+      const previous = tails.get(name) ?? Promise.resolve();
+      const run = previous.then(() => callback());
+      tails.set(
+        name,
+        run.catch(() => undefined),
+      );
+      return run;
+    },
+  );
+  return { request };
+}
+
+describe("cross-tab refresh serialization", () => {
+  it("never overlaps refreshes from two tabs sharing the Web Locks API", async () => {
+    const locks = fakeLocks();
+    vi.stubGlobal("navigator", { ...navigator, locks });
+
+    // Two independent module instances = two tabs with separate memory.
+    const tabA = api;
+    vi.resetModules();
+    const tabB: ApiModule = await import("./api");
+
+    const events: string[] = [];
+    let calls = 0;
+    const gates: Array<() => void> = [];
+    fetchMock.mockImplementation(async (input) => {
+      expect(String(input)).toBe(`${BASE}/auth/refresh`);
+      const n = ++calls;
+      events.push(`start:${n}`);
+      await new Promise<void>((resolve) => gates.push(resolve));
+      events.push(`end:${n}`);
+      return json(200, tokenPayload(`token-${n}`));
+    });
+
+    const a = tabA.refreshSession();
+    const b = tabB.refreshSession();
+
+    await vi.waitFor(() => expect(gates).toHaveLength(1));
+    // Give tab B every chance to (wrongly) start its own request.
+    await new Promise((r) => setTimeout(r, 10));
+    expect(events).toEqual(["start:1"]);
+
+    gates[0]();
+    await vi.waitFor(() => expect(gates).toHaveLength(2));
+    gates[1]();
+
+    await expect(a).resolves.toMatchObject({ access_token: "token-1" });
+    await expect(b).resolves.toMatchObject({ access_token: "token-2" });
+    expect(events).toEqual(["start:1", "end:1", "start:2", "end:2"]);
+    expect(locks.request).toHaveBeenCalledTimes(2);
+    expect(locks.request.mock.calls.map(([name]) => name)).toEqual([
+      "paradise-auth-refresh",
+      "paradise-auth-refresh",
+    ]);
+    expect(tabA.getAccessToken()).toBe("token-1");
+    expect(tabB.getAccessToken()).toBe("token-2");
+  });
+
+  it("shares one locked refresh among concurrent callers in the same tab", async () => {
+    const locks = fakeLocks();
+    vi.stubGlobal("navigator", { ...navigator, locks });
+    fetchMock.mockImplementation(async () => json(200, tokenPayload("one")));
+
+    const [first, second] = await Promise.all([
+      api.refreshSession(),
+      api.refreshSession(),
+    ]);
+
+    expect(first.access_token).toBe("one");
+    expect(second.access_token).toBe("one");
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(locks.request).toHaveBeenCalledTimes(1);
+  });
+
+  it("releases the lock when a refresh fails so the next tab can proceed", async () => {
+    const locks = fakeLocks();
+    vi.stubGlobal("navigator", { ...navigator, locks });
+    fetchMock
+      .mockResolvedValueOnce(json(401, { message: "Invalid refresh token." }))
+      .mockResolvedValueOnce(json(200, tokenPayload("later")));
+
+    await expect(api.refreshSession()).rejects.toBeInstanceOf(api.ApiError);
+    await expect(api.refreshSession()).resolves.toMatchObject({
+      access_token: "later",
+    });
+  });
+
+  it("falls back to the in-tab single flight when navigator.locks is unavailable", async () => {
+    expect("locks" in navigator).toBe(false);
+    fetchMock.mockImplementation(async () => json(200, tokenPayload("solo")));
+
+    await Promise.all([api.refreshSession(), api.refreshSession()]);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(api.getAccessToken()).toBe("solo");
+  });
+});
