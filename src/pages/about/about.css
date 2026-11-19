@@ -5,18 +5,6 @@
    live in src/index.css.
    ═══════════════════════════════════════════════════════════════ */
 
-.about {
-  min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    var(--color-ocean-darker) 0%,
-    var(--color-night) 40%,
-    var(--color-ink) 100%
-  );
-  color: var(--color-cream);
-  font-family: var(--font-body);
-}
-
 /* ── Our Story ── */
 
 .about-story {
@@ -305,14 +293,17 @@
     grid-template-columns: 1fr;
   }
 
+  /* width: 100% — auto margins stop grid items stretching, which collapsed the image */
   .about-story__media {
     order: -1;
+    width: 100%;
     max-width: 30rem;
     margin-inline: auto;
   }
 
   .about-values__grid {
     grid-template-columns: 1fr;
+    width: 100%;
     max-width: 26rem;
     margin-inline: auto;
   }
@@ -327,25 +318,21 @@
   }
 
   .process-step__media {
-    max-width: 24rem;
+    width: 100%;
+    max-width: 30rem;
     margin-inline: auto;
   }
 
   .about-team__grid {
     grid-template-columns: 1fr 1fr;
-    max-width: 24rem;
+    width: 100%;
+    max-width: 30rem;
     margin-inline: auto;
   }
 }
 
 /* Small phone — 480px */
 @media (max-width: 480px) {
-  .about-team__grid {
-    grid-template-columns: 1fr;
-    max-width: 16rem;
-    margin-inline: auto;
-  }
-
   .about-cta__inner {
     padding: 2rem 1.25rem;
   }

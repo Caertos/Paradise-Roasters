@@ -8,9 +8,11 @@
   padding-block: var(--space-section);
 }
 
+/* Flex (not grid) so the incomplete last row (5 products) stays centred */
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--gap-grid);
   margin-top: 2.5rem;
 }
@@ -20,6 +22,7 @@
 .pr-card {
   display: flex;
   flex-direction: column;
+  flex: 0 1 calc((100% - 2 * var(--gap-grid)) / 3);
 }
 
 .pr-card__name {
@@ -42,7 +45,7 @@
   display: block;
   font-size: var(--text-caption);
   font-weight: 500;
-  color: var(--color-teal);
+  color: color-mix(in srgb, var(--color-teal) 55%, white);
   margin: 0.35rem 0 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -52,7 +55,7 @@
   font-size: var(--text-caption);
   line-height: 1.6;
   color: var(--color-cream);
-  opacity: 0.8;
+  opacity: 0.9;
   margin: 0 0 1.25rem;
   flex: 1;
 }
@@ -159,23 +162,40 @@
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
 
-@media (max-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .pr-card {
+    flex-basis: calc((100% - var(--gap-grid)) / 2);
   }
 }
 
+/* Root font-size bottoms out at 9px on phones; use fixed sizes so text stays readable */
 @media (max-width: 480px) {
+  .products .container {
+    padding-inline: 16px;
+  }
+
   .products-grid {
-    grid-template-columns: 1fr;
-    max-width: 22rem;
-    margin-inline: auto;
+    gap: 2.5rem;
+  }
+
+  .pr-card {
+    flex-basis: 100%;
+  }
+
+  .pr-card__name {
+    font-size: 20px;
+  }
+
+  .pr-card__tagline {
+    font-size: 11px;
+  }
+
+  .pr-card__desc {
+    font-size: 14px;
+  }
+
+  .pr-card__price {
+    font-size: 22px;
   }
 
   .pr-card__footer {
@@ -185,5 +205,7 @@
 
   .pr-card__button {
     width: 100%;
+    font-size: 14px;
+    padding: 0.75rem 1rem;
   }
 }

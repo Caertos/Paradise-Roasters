@@ -2,7 +2,7 @@ import "./about.css";
 
 export default function About() {
   return (
-    <div className="about">
+    <div className="about page-bg">
       {/* ── Hero ── */}
       <section className="page-hero">
         <div className="container">

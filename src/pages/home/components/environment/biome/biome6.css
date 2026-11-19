@@ -122,3 +122,44 @@
   width: 100%;
   height: auto;
 }
+
+/* Phones: stack the text column full-width; logo and contact sit beside the photo */
+@media (max-width: 500px) {
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .footer-container__left {
+    width: 100%;
+    padding: 1.5rem 1.5rem 0.5rem;
+  }
+
+  .footer__text {
+    font-size: 13px;
+  }
+
+  .button--products {
+    font-size: 13px;
+  }
+
+  .footer-container__center {
+    width: 60%;
+  }
+
+  .footer-container__right {
+    width: 40%;
+    padding: 1rem 1.25rem;
+  }
+
+  .footer-dots {
+    display: none;
+  }
+
+  .footer-whatsapp__text {
+    font-size: 11px;
+  }
+
+  .footer-whatsapp__phone {
+    font-size: 13px;
+  }
+}
