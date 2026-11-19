@@ -13,7 +13,7 @@ import "./reset-password.css";
 export default function ResetPassword() {
   const [params] = useSearchParams();
   const token = params.get("token") ?? "";
-  const [email, setEmail] = useState(params.get("email") ?? "");
+  const [email, setEmail] = useState(() => params.get("email") ?? "");
   const [password, setPassword] = useState("");
   const [confirmation, setConfirmation] = useState("");
   const [notice, setNotice] = useState<string | null>(null);

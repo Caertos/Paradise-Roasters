@@ -16,23 +16,30 @@ export function useApiForm() {
     setSubmitting(true);
     setFieldErrors({});
     setError(null);
+    // No `finally` clause: the React Compiler cannot lower it. Both paths
+    // reset `submitting` explicitly instead.
+    let succeeded: boolean;
     try {
       await action();
-      return true;
+      succeeded = true;
     } catch (caught) {
-      if (caught instanceof ApiError) {
-        const hasFieldErrors =
-          caught.status === 422 &&
-          caught.errors !== undefined &&
-          Object.keys(caught.errors).length > 0;
-        if (hasFieldErrors) setFieldErrors(caught.errors ?? {});
-        else setError(caught.message || GENERIC_ERROR);
-      } else {
-        setError(GENERIC_ERROR);
-      }
-      return false;
-    } finally {
-      setSubmitting(false);
+      showError(caught);
+      succeeded = false;
+    }
+    setSubmitting(false);
+    return succeeded;
+  }
+
+  function showError(caught: unknown) {
+    if (caught instanceof ApiError) {
+      const hasFieldErrors =
+        caught.status === 422 &&
+        caught.errors !== undefined &&
+        Object.keys(caught.errors).length > 0;
+      if (hasFieldErrors) setFieldErrors(caught.errors ?? {});
+      else setError(caught.message || GENERIC_ERROR);
+    } else {
+      setError(GENERIC_ERROR);
     }
   }
 

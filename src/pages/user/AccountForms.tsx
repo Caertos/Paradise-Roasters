@@ -43,16 +43,42 @@ export function VerificationBanner() {
   );
 }
 
+/**
+ * Profile editor. The fields are seeded from `user`, so they are keyed by the
+ * editable data: when it changes (a save here, or a refresh elsewhere) the
+ * fields remount with the current values, while unrelated re-renders keep the
+ * edit in progress. The success notice lives here so it survives that remount.
+ */
 export function ProfileForm({ user }: { user: User }) {
-  const { setUser } = useAuth();
-  const [name, setName] = useState(user.name);
-  const [phone, setPhone] = useState(user.phone ?? "");
-  const [email, setEmail] = useState(user.email);
-  const [currentPassword, setCurrentPassword] = useState("");
   const [notice, setNotice] = useState<string | null>(null);
+
+  return (
+    <ProfileFields
+      key={`${user.name}|${user.email}|${user.phone}`}
+      initialUser={user}
+      notice={notice}
+      onNotice={setNotice}
+    />
+  );
+}
+
+function ProfileFields({
+  initialUser,
+  notice,
+  onNotice: setNotice,
+}: {
+  initialUser: User;
+  notice: string | null;
+  onNotice: (notice: string | null) => void;
+}) {
+  const { setUser } = useAuth();
+  const [name, setName] = useState(initialUser.name);
+  const [phone, setPhone] = useState(initialUser.phone ?? "");
+  const [email, setEmail] = useState(initialUser.email);
+  const [currentPassword, setCurrentPassword] = useState("");
   const { submitting, fieldErrors, error, submit } = useApiForm();
 
-  const emailChanged = email.trim() !== user.email;
+  const emailChanged = email.trim() !== initialUser.email;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

@@ -131,10 +131,7 @@ export default function User() {
         <div className="container">
           <h2 className="section-title">Account</h2>
           <div className="user-account__grid">
-            <ProfileForm
-              key={`${user.name}|${user.email}|${user.phone}`}
-              user={user}
-            />
+            <ProfileForm user={user} />
             <div className="user-account__column">
               <ChangePasswordForm />
               <LogoutEverywhere />
