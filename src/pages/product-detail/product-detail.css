@@ -108,10 +108,13 @@
   font-weight: 400;
   color: var(--color-cream);
   margin: 0.25rem 0 0;
-  line-height: 1.15;
+  /* The script face's swashes reach well below the baseline. */
+  line-height: 1.6;
+  padding-bottom: 0.35em;
 }
 
 .product-detail__subtitle {
+  position: relative;
   font-size: var(--text-hero-sub);
   font-weight: 700;
   color: var(--color-gold);
