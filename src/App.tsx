@@ -11,6 +11,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Products from "./pages/products/Products";
+import ProductDetail from "./pages/product-detail/ProductDetail";
 import Blogs from "./pages/blogs/Blogs";
 import User from "./pages/user/User";
 import Cart from "./pages/cart/Cart";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:slug" element={<ProductDetail />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route
           path="/user"

@@ -34,7 +34,7 @@
 }
 
 .products-overlay .product-card:first-child {
-  top:14%;
+  top: 14%;
   left: 5%;
 
   @media (max-width: 500px) {
@@ -77,7 +77,6 @@
   @media (max-width: 500px) {
     top: 35%;
   }
-
 }
 
 .products-overlay .product-card:nth-child(4) {
@@ -125,5 +124,5 @@
 
   @media (max-width: 425px) {
     width: 80%;
-}
+  }
 }

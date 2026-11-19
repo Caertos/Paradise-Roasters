@@ -10,18 +10,15 @@ export interface ProductPresentation {
 }
 
 /**
- * Shape of the static placeholder products.
- *
- * @deprecated TODO(unit 5): remove once the pages read from the catalog API.
+ * A home card for an animal whose coffee is not on sale yet (owner decision,
+ * module 2 §0 question 3): no price, no product link, no add-to-cart.
  */
-export interface Product {
+export interface ComingSoonItem {
   id: string;
   name: string;
   subtitle: string;
-  price: string;
   tagline: string;
   description: string;
   image: string;
-  decorativeImages: string[];
-  align: "left" | "right" | "center";
+  align: ProductAlign;
 }

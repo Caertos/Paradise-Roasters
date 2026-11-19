@@ -8,7 +8,7 @@
   padding-block: var(--space-section);
 }
 
-/* Flex (not grid) so the incomplete last row (5 products) stays centred */
+/* Flex (not grid) so an incomplete last row stays centred */
 .products-grid {
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +25,41 @@
   flex: 0 1 calc((100% - 2 * var(--gap-grid)) / 3);
 }
 
+.pr-card__media-link {
+  display: block;
+}
+
+/* Transparent 4:5 bag on the page's own background; width/height attributes
+   plus aspect-ratio reserve the box before the image loads. */
+.pr-card__media {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgb(0 0 0 / 0.35));
+  transition: transform 0.3s;
+}
+
+.pr-card__media-link:hover .pr-card__media {
+  transform: scale(1.03);
+}
+
+div.pr-card__media {
+  filter: none;
+}
+
+.pr-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pr-card__link:hover,
+.pr-card__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .pr-card__name {
   font-family: var(--font-body);
   font-size: clamp(1.2rem, 1.8vw, 1.6rem);
@@ -35,6 +70,8 @@
 }
 
 .pr-card__subtitle {
+  display: block;
+  margin-top: 0.2rem;
   font-size: 0.7em;
   color: var(--color-cream);
   opacity: 0.6;
@@ -58,6 +95,11 @@
   opacity: 0.9;
   margin: 0 0 1.25rem;
   flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 .pr-card__footer {
@@ -75,7 +117,117 @@
   letter-spacing: 0.02em;
 }
 
-.pr-card__button {
+/* ── Filters ── */
+
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.catalog-filters__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.catalog-chip {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  color: var(--color-cream);
+  background: rgb(222 217 188 / 0.06);
+  border: 1px solid rgb(222 217 188 / 0.25);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.catalog-chip:hover {
+  border-color: var(--color-gold);
+}
+
+.catalog-chip[aria-pressed="true"] {
+  color: var(--color-ink);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.catalog-chip:focus-visible,
+.catalog-filters__sort select:focus-visible,
+.catalog-pagination__button:focus-visible,
+.catalog-message__button:focus-visible {
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 2px;
+}
+
+.catalog-filters__sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-caption);
+}
+
+.catalog-filters__sort select {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  color: var(--color-cream);
+  background: var(--color-night);
+  border: 1px solid rgb(222 217 188 / 0.25);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+}
+
+/* ── Loading skeletons ── */
+
+.pr-card--skeleton .image-placeholder {
+  aspect-ratio: 4 / 5;
+}
+
+.pr-card__skeleton-line {
+  height: 1.1rem;
+  width: 70%;
+  margin-top: 1.25rem;
+  border-radius: 4px;
+  background: rgb(222 217 188 / 0.1);
+}
+
+.pr-card__skeleton-line--short {
+  width: 40%;
+  margin-top: 0.75rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pr-card--skeleton {
+    animation: pr-card-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pr-card-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ── Error / empty states ── */
+
+.catalog-message {
+  text-align: center;
+  margin: 3rem auto 0;
+  max-width: 30rem;
+  font-size: var(--text-body);
+}
+
+.catalog-message__button,
+.catalog-pagination__button {
   font-family: var(--font-body);
   font-size: var(--text-caption);
   font-weight: 600;
@@ -83,18 +235,30 @@
   background: var(--color-accent);
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.4rem;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.15s;
+  transition: background-color 0.2s;
 }
 
-.pr-card__button:hover {
+.catalog-message__button:hover,
+.catalog-pagination__button:hover:not(:disabled) {
   background: var(--color-accent-bright);
-  transform: scale(1.04);
 }
 
-.pr-card__button:active {
-  transform: scale(0.97);
+/* ── Pagination ── */
+
+.catalog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-caption);
+}
+
+.catalog-pagination__button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 /* ── CTA section ── */
@@ -146,7 +310,9 @@
   border-radius: 4px;
   outline: 1px solid var(--color-white);
   outline-offset: 3px;
-  transition: background-color 0.3s, transform 0.15s;
+  transition:
+    background-color 0.3s,
+    transform 0.15s;
 }
 
 .products-cta__button:hover {
@@ -161,6 +327,12 @@
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 560px) {
+  .catalog-filters {
+    flex-direction: column;
+  }
+}
 
 @media (max-width: 768px) {
   .pr-card {
@@ -182,6 +354,41 @@
     flex-basis: 100%;
   }
 
+  .pr-card__media-link {
+    display: block;
+  }
+
+  /* Transparent 4:5 bag on the page's own background; width/height attributes
+   plus aspect-ratio reserve the box before the image loads. */
+  .pr-card__media {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgb(0 0 0 / 0.35));
+    transition: transform 0.3s;
+  }
+
+  .pr-card__media-link:hover .pr-card__media {
+    transform: scale(1.03);
+  }
+
+  div.pr-card__media {
+    filter: none;
+  }
+
+  .pr-card__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .pr-card__link:hover,
+  .pr-card__link:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
   .pr-card__name {
     font-size: 20px;
   }
@@ -196,16 +403,5 @@
 
   .pr-card__price {
     font-size: 22px;
-  }
-
-  .pr-card__footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .pr-card__button {
-    width: 100%;
-    font-size: 14px;
-    padding: 0.75rem 1rem;
   }
 }
