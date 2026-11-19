@@ -1,0 +1,7 @@
+/* ═══════════════════════════════════════════════════════════════
+   REGISTER PAGE (shared form styles live in components/form/form.css)
+   ═══════════════════════════════════════════════════════════════ */
+
+.register .form-card {
+  max-width: 34rem;
+}

@@ -75,13 +75,20 @@ export function buildLoginUrl(intended: string): string {
   return `/login?redirect=${encodeURIComponent(intended)}`;
 }
 
-let loginRedirect: (url: string) => void = (url) => {
+const assignLocation = (url: string) => {
   window.location.assign(url);
 };
 
-/** Overrides how the client navigates to the login page (tests, router). */
-export function setLoginRedirect(redirect: (url: string) => void): void {
-  loginRedirect = redirect;
+let loginRedirect: (url: string) => void = assignLocation;
+
+/**
+ * Overrides how the client navigates to the login page (tests, router).
+ * Passing `null` restores the default full-page navigation.
+ */
+export function setLoginRedirect(
+  redirect: ((url: string) => void) | null,
+): void {
+  loginRedirect = redirect ?? assignLocation;
 }
 
 function expireSession(): void {

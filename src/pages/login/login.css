@@ -1,0 +1,7 @@
+/* ═══════════════════════════════════════════════════════════════
+   LOGIN PAGE (shared form styles live in components/form/form.css)
+   ═══════════════════════════════════════════════════════════════ */
+
+.login__forgot {
+  font-size: var(--text-caption);
+}
