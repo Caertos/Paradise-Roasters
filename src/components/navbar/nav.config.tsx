@@ -19,14 +19,15 @@ export const navItems: NavItem[] = [
   { label: "Products", href: "/products" },
   { label: "About us", href: "/about" },
   { label: "Blogs", href: "/blogs" },
-  { label: "User", href: "/user" },
-  {
-    label: (
-      <span className="cart-label">
-        <CartIcon />
-        <span>Cart</span>
-      </span>
-    ),
-    href: "/cart",
-  },
 ];
+
+/** Rendered last, after the auth-dependent links. */
+export const cartItem: NavItem = {
+  label: (
+    <span className="cart-label">
+      <CartIcon />
+      <span>Cart</span>
+    </span>
+  ),
+  href: "/cart",
+};

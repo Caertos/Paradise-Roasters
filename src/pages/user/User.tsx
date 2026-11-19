@@ -1,3 +1,13 @@
+import { useSearchParams } from "react-router-dom";
+import { useAuth } from "../../auth/useAuth";
+import FormAlert from "../../components/form/FormAlert";
+import {
+  ChangePasswordForm,
+  LogoutEverywhere,
+  ProfileForm,
+  VerificationBanner,
+} from "./AccountForms";
+
 import "./user.css";
 
 const dashboardCards = [
@@ -51,7 +61,23 @@ const settings = [
   { label: "Marketing Updates", enabled: true },
 ];
 
+function memberSince(createdAt: string): string {
+  const date = new Date(createdAt);
+  if (Number.isNaN(date.getTime())) return "";
+  return `Member since ${date.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  })}`;
+}
+
 export default function User() {
+  const { user } = useAuth();
+  const [params] = useSearchParams();
+  const justVerified = params.get("verified") === "1";
+
+  // ProtectedRoute guarantees an authenticated user; this narrows the type.
+  if (!user) return null;
+
   return (
     <div className="user page-bg">
       {/* ── Hero ── */}
@@ -67,6 +93,15 @@ export default function User() {
       {/* ── Profile Card ── */}
       <section className="user-profile-section">
         <div className="container">
+          {justVerified && (
+            <div className="user-notice">
+              <FormAlert
+                message="Your email address has been verified."
+                tone="success"
+              />
+            </div>
+          )}
+          {!user.email_verified && <VerificationBanner />}
           <article className="user-profile">
             <div className="user-profile__avatar">
               <div className="image-placeholder image-placeholder--aspect-1-1 user-profile__avatar-img">
@@ -75,14 +110,33 @@ export default function User() {
               </div>
             </div>
             <div className="user-profile__info">
-              <h2 className="user-profile__name">Alex Thompson</h2>
-              <p className="user-profile__email">alex.thompson@example.com</p>
-              <p className="user-profile__meta">Member since March 2021</p>
+              <h2 className="user-profile__name">{user.name}</h2>
+              <p className="user-profile__email">{user.email}</p>
+              {user.phone && (
+                <p className="user-profile__email">{user.phone}</p>
+              )}
+              <p className="user-profile__meta">
+                {memberSince(user.created_at)}
+              </p>
             </div>
-            <a href="#" className="user-profile__edit">
+            <a href="#profile-details" className="user-profile__edit">
               Edit Profile
             </a>
           </article>
+        </div>
+      </section>
+
+      {/* ── Account: profile, password, sessions ── */}
+      <section className="user-account">
+        <div className="container">
+          <h2 className="section-title">Account</h2>
+          <div className="user-account__grid">
+            <ProfileForm user={user} />
+            <div className="user-account__column">
+              <ChangePasswordForm />
+              <LogoutEverywhere />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -97,7 +151,11 @@ export default function User() {
                   aria-hidden="true"
                 />
                 <p className="user-dash-card__label">{card.label}</p>
-                <p className={`user-dash-card__value${i === 2 ? " user-dash-card__value--product" : ""}`}>{card.value}</p>
+                <p
+                  className={`user-dash-card__value${i === 2 ? " user-dash-card__value--product" : ""}`}
+                >
+                  {card.value}
+                </p>
                 <p className="user-dash-card__note">{card.note}</p>
               </article>
             ))}
@@ -115,7 +173,9 @@ export default function User() {
                 <div className="user-order-row__thumb">
                   <div className="image-placeholder image-placeholder--aspect-1-1">
                     <span className="image-placeholder__ratio">1:1</span>
-                    <span className="image-placeholder__hint">{order.item}</span>
+                    <span className="image-placeholder__hint">
+                      {order.item}
+                    </span>
                   </div>
                 </div>
                 <div className="user-order-row__main">

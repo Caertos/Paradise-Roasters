@@ -30,7 +30,9 @@
   width: 100%;
   height: 2px;
   background: var(--color-ink);
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
   transform-origin: center;
 }
 
@@ -80,7 +82,9 @@
   text-transform: uppercase;
   white-space: nowrap;
   justify-content: center;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .nav-link.active {
@@ -112,6 +116,25 @@
   justify-content: flex-end;
   padding-right: 0;
   background-color: transparent;
+}
+
+/* Auth links: the user's name may be long, Logout is a real button. */
+.nav-link__name {
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-link--button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+.nav-link--button:hover {
+  background-color: var(--color-cream);
 }
 
 .nav-link svg {
@@ -214,10 +237,19 @@
     padding-right: 1.5rem;
   }
 
+  .nav-link--button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-link__name {
+    max-width: 100%;
+  }
+
   .nav-link.active {
     background-color: var(--color-cream);
     color: var(--color-gold);
-    border-bottom-color: var(--color-gold)33;
+    border-bottom-color: var(--color-gold) 33;
   }
 
   .nav-link.active .home-icon-svg path:first-child {
