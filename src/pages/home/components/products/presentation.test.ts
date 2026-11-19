@@ -8,31 +8,41 @@ import {
 
 describe("product presentation map", () => {
   it("pairs each real product with its bag's animal decorations", () => {
-    expect(productPresentation.blend).toEqual({
-      decorativeImages: ["/products/marlin-decorative.png"],
-      align: "right",
-    });
-    expect(productPresentation["pink-bourbon"]).toEqual({
-      decorativeImages: [
-        "/products/grouper1.svg",
-        "/products/grouper2.svg",
-        "/products/grouper3.svg",
-        "/products/grouper4.svg",
-      ],
-      align: "right",
-    });
-    expect(productPresentation.castillo).toEqual({
-      decorativeImages: [
-        "/products/flamingo1.svg",
-        "/products/flamingo2-decorative.png",
-      ],
-      align: "left",
-    });
+    const animal = (slug: string) =>
+      productPresentation[slug].decorativeImages.filter(
+        (d) => d.layer === "front",
+      );
+    expect(animal("castillo").map((d) => d.src)).toEqual([
+      "/products/decor/flamingo.webp",
+    ]);
+    expect(animal("pink-bourbon").map((d) => d.src)).toEqual([
+      "/products/decor/grouper.webp",
+    ]);
+    expect(animal("blend").map((d) => d.src)).toEqual([
+      "/products/decor/marlin.webp",
+    ]);
+    expect(productPresentation.castillo.align).toBe("left");
+    expect(productPresentation["pink-bourbon"].align).toBe("right");
+    expect(productPresentation.blend.align).toBe("right");
   });
 
-  it("holds only decorativeImages and align", () => {
+  it("holds only presentation: decorations, bag placement and align", () => {
     for (const entry of Object.values(productPresentation)) {
-      expect(Object.keys(entry).sort()).toEqual(["align", "decorativeImages"]);
+      expect(Object.keys(entry).sort()).toEqual([
+        "align",
+        "bag",
+        "decorativeImages",
+      ]);
+      for (const d of entry.decorativeImages) {
+        expect(Object.keys(d).sort()).toEqual([
+          "layer",
+          "left",
+          "src",
+          "top",
+          "width",
+        ]);
+        expect(d.src).toMatch(/^\/products\/decor\/[a-z-]+\.webp$/);
+      }
     }
   });
 
@@ -55,11 +65,7 @@ describe("product presentation map", () => {
     expect(mergePresentation(apiProduct)).toEqual({
       slug: "castillo",
       name: "Castillo",
-      decorativeImages: [
-        "/products/flamingo1.svg",
-        "/products/flamingo2-decorative.png",
-      ],
-      align: "left",
+      ...productPresentation.castillo,
     });
   });
 
@@ -75,7 +81,13 @@ describe("product presentation map", () => {
 
   it("does not let callers mutate the shared defaults", () => {
     const merged = mergePresentation({ slug: "new-arrival" });
-    merged.decorativeImages.push("/x.png");
+    merged.decorativeImages.push({
+      src: "/x.webp",
+      layer: "back",
+      left: 0,
+      top: 0,
+      width: 1,
+    });
     expect(DEFAULT_PRESENTATION.decorativeImages).toEqual([]);
   });
 });

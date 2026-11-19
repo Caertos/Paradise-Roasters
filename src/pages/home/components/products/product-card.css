@@ -99,6 +99,34 @@
   text-shadow: none;
 }
 
+/* Real bag + separate decorative layers, positioned by data.ts. */
+.product-card__art {
+  isolation: isolate;
+}
+
+.product-card__bag,
+.product-card__decor {
+  position: absolute;
+  height: auto;
+}
+
+.product-card__bag {
+  z-index: 2;
+  aspect-ratio: 4 / 5;
+}
+
+.product-card__decor {
+  pointer-events: none;
+}
+
+.product-card__decor--back {
+  z-index: 1;
+}
+
+.product-card__decor--front {
+  z-index: 3;
+}
+
 .product-card--soon .product-card__image {
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) grayscale(0.35);
 }

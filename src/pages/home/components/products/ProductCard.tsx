@@ -1,12 +1,38 @@
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { Product } from "@/lib/catalogApi";
-import type { ComingSoonItem, ProductPresentation } from "./types";
+import type {
+  ComingSoonItem,
+  Decoration,
+  Placement,
+  ProductPresentation,
+} from "./types";
 import { useInView } from "@/hooks/useInView";
 import ProductPhoto from "@/components/product-photo/ProductPhoto";
 import "./product-card.css";
 
 const CARD_SIZES = "(max-width: 425px) 50vw, 30vw";
+
+function placement({ left, top, width }: Placement): CSSProperties {
+  return { left: `${left}%`, top: `${top}%`, width: `${width}%` };
+}
+
+/** Decorative layers are separate, purely visual images (empty alt). */
+function decorations(items: Decoration[], layer: Decoration["layer"]) {
+  return items
+    .filter((d) => d.layer === layer)
+    .map((d) => (
+      <img
+        key={`${d.src}@${d.left},${d.top}`}
+        src={d.src}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        className={`product-card__decor product-card__decor--${layer}`}
+        style={placement(d)}
+      />
+    ));
+}
 
 interface ProductCardProps {
   product: Product & ProductPresentation;
@@ -24,7 +50,20 @@ export default function ProductCard({ product }: ProductCardProps) {
       data-card={product.slug}
       className={`product-card product-card--${product.align} ${visible ? "product-card--visible" : ""}`}
     >
-      {product.image ? (
+      {product.bag ? (
+        <div className="product-card__image product-card__art">
+          {decorations(product.decorativeImages, "back")}
+          {product.image && (
+            <ProductPhoto
+              image={product.image}
+              sizes={CARD_SIZES}
+              className="product-card__bag"
+              style={placement(product.bag)}
+            />
+          )}
+          {decorations(product.decorativeImages, "front")}
+        </div>
+      ) : product.image ? (
         <ProductPhoto
           image={product.image}
           sizes={CARD_SIZES}

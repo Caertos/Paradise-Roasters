@@ -1,12 +1,26 @@
 import type {
   ComingSoonItem,
+  Decoration,
   ProductAlign,
   ProductPresentation,
 } from "./types";
 
+/** A decoration from `public/products/decor/` placed in the home art box. */
+function deco(
+  name: string,
+  layer: Decoration["layer"],
+  left: number,
+  top: number,
+  width: number,
+): Decoration {
+  return { src: `/products/decor/${name}.webp`, layer, left, top, width };
+}
+
 /**
- * Presentation config keyed by product slug: only the decorations and the
- * card alignment. Components merge it with the catalog API data.
+ * Presentation config keyed by product slug: the decorations around the bag,
+ * where the bag sits, and the card alignment. Components merge it with the
+ * catalog API data. Each decoration (animal, beans, frame) is a separate
+ * image, so the real bag photo can change without touching the artwork.
  *
  * Conch and Turtle have no real product yet; they render on home as
  * "Coming soon" cards (`comingSoon` below), not through this map.
@@ -14,31 +28,44 @@ import type {
 export const productPresentation: Readonly<
   Record<string, ProductPresentation>
 > = {
-  blend: {
-    decorativeImages: ["/products/marlin-decorative.png"],
-    align: "right",
+  castillo: {
+    decorativeImages: [
+      deco("frame-a", "back", 24, 17, 48),
+      deco("frame-c", "back", 29, 22, 40),
+      deco("beans", "back", 63, 3, 18),
+      deco("flamingo", "front", 7, 34, 27),
+    ],
+    align: "left",
+    bag: { left: 24, top: 14, width: 50 },
   },
   "pink-bourbon": {
     decorativeImages: [
-      "/products/grouper1.svg",
-      "/products/grouper2.svg",
-      "/products/grouper3.svg",
-      "/products/grouper4.svg",
+      deco("frame-b", "back", 45, 26, 44),
+      deco("frame-a", "back", 49, 31, 40),
+      deco("beans", "back", 74, 8, 17),
+      deco("grouper", "back", 3, 40, 17),
+      deco("grouper", "back", 26, 53, 9),
+      deco("grouper", "back", 38, 28, 20),
+      deco("grouper", "front", 14, 60, 46),
     ],
     align: "right",
+    bag: { left: 45.75, top: 29.32, width: 43.92 },
   },
-  castillo: {
+  blend: {
     decorativeImages: [
-      "/products/flamingo1.svg",
-      "/products/flamingo2-decorative.png",
+      deco("frame-c", "back", 10, 11, 33),
+      deco("frame-b", "back", 6, 15, 37),
+      deco("beans", "back", 3, 2, 13),
+      deco("marlin", "front", 12, 33, 86),
     ],
-    align: "left",
+    align: "right",
+    bag: { left: 8.01, top: 12.67, width: 38.25 },
   },
 };
 
 /** Used for any product without an entry in the map. */
 export const DEFAULT_PRESENTATION: Readonly<{
-  decorativeImages: readonly string[];
+  decorativeImages: readonly Decoration[];
   align: ProductAlign;
 }> = Object.freeze({ decorativeImages: Object.freeze([]), align: "left" });
 
@@ -57,8 +84,13 @@ export function getPresentation(slug: string): ProductPresentation {
 export function mergePresentation<T extends { slug: string }>(
   product: T,
 ): T & ProductPresentation {
-  const { decorativeImages, align } = getPresentation(product.slug);
-  return { ...product, decorativeImages: [...decorativeImages], align };
+  const { decorativeImages, align, bag } = getPresentation(product.slug);
+  return {
+    ...product,
+    decorativeImages: [...decorativeImages],
+    align,
+    ...(bag && { bag }),
+  };
 }
 
 /**

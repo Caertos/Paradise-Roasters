@@ -5,8 +5,26 @@ export type ProductAlign = "left" | "right";
  * (name, price, images, ...) comes from the catalog API.
  */
 export interface ProductPresentation {
-  decorativeImages: string[];
+  decorativeImages: Decoration[];
   align: ProductAlign;
+  /** Where the real bag photo sits in the art box; centred when absent. */
+  bag?: Placement;
+}
+
+/** Position inside the 1086x958 home art box, in percent (height follows the image). */
+export interface Placement {
+  left: number;
+  top: number;
+  width: number;
+}
+
+/**
+ * One decorative element (an animal, the coffee beans, a frame), kept as its
+ * own image: `back` layers sit behind the bag, `front` layers in front of it.
+ */
+export interface Decoration extends Placement {
+  src: string;
+  layer: "back" | "front";
 }
 
 /**

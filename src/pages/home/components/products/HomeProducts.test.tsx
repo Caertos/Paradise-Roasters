@@ -66,6 +66,52 @@ describe("home product cards", () => {
     expect(order).toEqual(["castillo", "conch", "turtle", "pink-bourbon"]);
   });
 
+  it("layers frames, beans, the real bag and the animal as separate images", async () => {
+    fetchMock.mockResolvedValue(json(200, makePage([castillo])));
+    const { container } = renderHomeProducts();
+
+    const bag = await screen.findByAltText(
+      "Paradise Roasters castillo coffee bag, front",
+    );
+    const art = container.querySelector<HTMLElement>(
+      '[data-card="castillo"] .product-card__art',
+    )!;
+    const layers = Array.from(art.querySelectorAll("img"));
+    const srcs = layers.map((img) =>
+      img === bag ? "BAG" : img.getAttribute("src"),
+    );
+    expect(srcs).toEqual([
+      "/products/decor/frame-a.webp",
+      "/products/decor/frame-c.webp",
+      "/products/decor/beans.webp",
+      "BAG",
+      "/products/decor/flamingo.webp",
+    ]);
+    for (const img of layers.filter((img) => img !== bag)) {
+      expect(img).toHaveAttribute("alt", "");
+      expect(img).toHaveClass("product-card__decor");
+    }
+    expect(bag.style.left).toBe("24%");
+    expect(bag.style.top).toBe("14%");
+    expect(bag.style.width).toBe("50%");
+  });
+
+  it("renders a product without a presentation entry without decorations", async () => {
+    fetchMock.mockResolvedValue(
+      json(200, makePage([{ ...castillo, slug: "new-coffee", name: "New" }])),
+    );
+    const { container } = renderHomeProducts();
+
+    await screen.findByRole("link", { name: "New" });
+    const card = container.querySelector('[data-card="new-coffee"]')!;
+    expect(card.querySelectorAll(".product-card__decor")).toHaveLength(0);
+    expect(
+      card.querySelector(
+        'img[alt="Paradise Roasters castillo coffee bag, front"]',
+      ),
+    ).toBeInTheDocument();
+  });
+
   it("marks Conch and Turtle as coming soon, with no price or link", async () => {
     fetchMock.mockResolvedValue(json(200, makePage([castillo])));
     const { container } = renderHomeProducts();

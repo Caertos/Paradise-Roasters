@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { ProductImage } from "@/lib/catalogApi";
 
 interface ProductPhotoProps {
@@ -6,6 +7,7 @@ interface ProductPhotoProps {
   sizes: string;
   className?: string;
   loading?: "lazy" | "eager";
+  style?: CSSProperties;
 }
 
 /**
@@ -17,6 +19,7 @@ export default function ProductPhoto({
   sizes,
   className,
   loading = "lazy",
+  style,
 }: ProductPhotoProps) {
   const { sm, md, lg } = image.urls;
   return (
@@ -30,6 +33,7 @@ export default function ProductPhoto({
       loading={loading}
       decoding="async"
       className={className}
+      style={style}
     />
   );
 }
